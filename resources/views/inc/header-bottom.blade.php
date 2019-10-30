@@ -1,0 +1,33 @@
+<div class="container">
+    <form class="form-inline">
+        <div class="form-group">
+            <div class="btn-group">
+                <select class="form-control no-border">
+                    <option value="">Choose Category</option>
+                    @if(!empty($categories))
+                        @foreach($categories as $category)
+                            <option value="{{$category->name}}">{{$category->name}}</option>
+                        @endforeach
+                    @endif
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="btn-group">
+                <select class="form-control no-border">
+                    <option value="">Choose Location</option>
+                    @if(!empty($locations))
+                        @foreach($locations as $location)
+                            <option value="{{$location->name}}">{{$location->name}}</option>
+                        @endforeach
+                    @endif
+                </select>
+            </div>
+        </div>
+        <div class="form-group flex">
+            <input class="form-control" type="text" value="" id="filter_id" placeholder="What you are looking for...">
+            <button type="button" class="btn btn-default last"><i class="glyphicon glyphicon-search"></i> Search
+            </button>
+        </div>
+    </form>
+</div>

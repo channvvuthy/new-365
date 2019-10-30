@@ -1,0 +1,7 @@
+.col.col-6.offset-3 form{
+    padding:20px;
+    margin-top:150px;
+}
+.col.col-6.offset-3 form *{
+    border-radius:0px;
+}

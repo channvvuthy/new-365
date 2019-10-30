@@ -1,0 +1,369 @@
+body{
+    font-family: reqular,"khmer os" !important;
+    padding:0px !important;
+}
+
+.url a {
+    font-family: reqular,"khmer os" !important;
+    word-break: break-all;
+}
+
+.index_address {
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+.form-control {
+    height: 36px !important;
+}
+.form-control, .form-control:focus {
+    border-color: #ccd0d2 !important;
+    outline: 0;
+    -webkit-box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0.075), 0 0 0px rgba(152, 203, 232, 0.6) !important;
+    box-shadow: inset 0 0px 0px rgba(0, 0, 0, 0.075), 0 0 0px rgba(152, 203, 232, 0.6) !important;
+}
+.logo a {
+    color: #fff !important;
+    font-family: bold;
+    font-size: 25px;
+    text-decoration: none !important;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+.logo {
+    margin-top: 5px;
+}
+.create a{
+    color:#fff !important;
+    text-decoration:none !important;
+    font-weight:bold;
+}
+.create{
+    margin-top: 40px;
+}
+.header.bg-primary {height: 100px;}
+.search {
+    margin: 20px 0px 10px 0px;
+}
+.ul {
+    background: white;
+
+}
+.ul li{
+    line-height:2em;
+    padding: 10px;
+    border-bottom:1px solid #e6ebef;
+}
+.ul li a, .list a{
+    color:#313030;
+}
+.ul li img{
+    max-width:30px;
+    margin-right:10px;
+}
+.child {
+    background: white;
+    padding: 10px;
+    min-height: 500px;
+}
+.none:first-child {
+    display:block;
+}
+.none {
+    display:none;
+}
+
+.title.latest {
+    position: relative;
+    text-align: center;
+}
+
+.title.latest:before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 5px;
+    background: #999;
+    position: absolute;
+    left: 0;
+    top: 44px;
+}
+.title.latest h2 {
+    padding: 10px;
+    font-size: 25px;
+    color: #333;
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    font-weight: bold;
+    text-align: center;
+    background: #f5f8fa;
+    font-family: bold;
+}
+.img-product img {
+    height: 200px;
+    margin: auto;
+}
+
+.product-title {
+    text-align: center;
+    background: #fff;
+    padding: 10px;
+}
+.product-title a {
+    font-size: 18px;
+    font-family: bold, "khmer os";
+}
+
+.ul.parent a {
+    font-size: 17px;
+}
+
+.child  a {
+    font-size: 17px;
+    display: block;
+    word-wrap: break-word;
+}
+a{
+    text-decoration:none !important;
+}
+.loading.text-center {
+    margin: auto;
+    display: block;
+    width: 100%;
+    clear: both;
+}
+.child ul li{
+    display:block;
+    width: 32%;
+    box-sizing:border-box;
+    float:left;
+    height: 100px;
+    text-align: center;
+    line-height: 50px;
+    border: 1px solid #f5f8fa;
+    border-left: none;
+    border-top: none;
+    border-right: none;
+}
+.banner img {
+    margin: 10px 0px 20px 0px;
+}
+
+.banner {
+    text-align: center;
+}
+.child img {
+    max-width: 35px;
+}
+strong.price {
+    font-weight: bold;
+    text-align: left;
+    clear: both;
+    display: block;
+    color: red;
+    font-size: 18px;
+}
+h3.product-name {height: 59px;margin-top: 10px;overflow: hidden;}
+.location-list{
+    background-color:white;
+    padding: 7px 11px;
+    display: block;
+    clear: both;
+    width: 123px;
+    text-align: center;
+    font-family: bold;
+    color: #007bff;
+}
+.local {
+    background: white;
+    padding: 13px;
+    margin-top: -11px;
+    overflow:hidden;
+}
+.local ul{
+    list-style-type:circle !important;
+}
+.local li{
+    line-height: 3em;
+    font-family:reqular;
+    font-size:16px;
+    float:left;
+    margin: 0px !important;
+    display:block;
+    width:25%;
+    box-sizing:border-box;
+}
+.local li a{
+    color:#313030;
+}
+.local li a:hover{
+    color:#007bff;
+}
+.footer {
+    padding-top: 30px;
+    margin-top: 100px;
+    background-color: #069;
+}
+footer {
+    display: block;
+    background: url('../../images/footer.png') top center no-repeat;
+    overflow: hidden;
+    margin-top: 20px;
+}
+footer h3 {
+    color: #fff;
+    font-family: bold;
+    font-size: 18px;
+}
+.logo img{
+    margin-right: 3px;
+}
+footer a{
+    color:#fff !important;
+    font-family:reqular,"khmer os";
+    display:block;
+    line-height:2em;
+}
+.btn-warning{
+    background-color: #ffb800 !important;
+    border-color: #ffb800 !important;
+}
+.search {
+    height:50px;
+}
+.search input{
+    height:50px !important;
+    border:none !important;
+}
+.search select, button {
+    height:50px !important;
+    border:none !important;
+}
+button.btn.btn-warning.btn-block.rounded-0 {
+    font-family: bold;
+    font-size: 18px;
+}
+button.btn-primary.btn.btn-block a {
+    color:#fff;
+    font-size:20px;
+}
+.text-danger {
+    color: #a94442 !important;
+}
+.toggle-cat {
+    font-size: 18px;
+    background: white;
+    padding: 10px;
+    height: 50px;
+    line-height: 30px;
+    border-bottom: 1px solid #f5f8fa;
+    font-family:bold;
+    cursor: pointer;
+}
+i.glyphicon.glyphicon-menu-hamburger {
+    font-size: 12px;
+    margin-left: 15px;
+}
+
+img.indicator {
+    margin: 3px !important;
+    cursor: pointer;
+}
+.carousel-indicators .active{
+    width:90px !important;
+    height:50px !important;
+
+}
+img.indicator.active{
+    border: 2px solid #ffffff !important;
+}
+ol.carousel-indicators {
+    margin-bottom: -13px !important;
+}
+.breadcrumb{
+    margin-bottom: 0px !important;
+}
+.welcome {
+    height: 50px;
+    line-height: 50px;
+    font-size:16px;
+}
+.post-date {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+}
+img {}
+
+.store-header img {
+    float: left;
+    margin-right: 15px;
+}
+
+.store-header {
+    background-color:#007bff;
+    overflow:hidden;
+    padding:10px;
+    color:#fff;
+    text-transform:uppercase;
+}
+.store-header p{
+    margin-top:10px;
+}
+.show_all a{
+    color:#fff !important;
+    text-transform:lowercase;
+    font-size:14px;
+}
+.show_all {
+    text-align: center;
+}
+.store {
+    background: white;
+    box-shadow: 0 0 1px 1px rgba(0,0,0,.1);
+    padding-bottom: 10px;
+}
+
+.store-body {
+    padding: 15px;
+}
+
+img.phone {
+    float: left;
+    margin-right: 10px;
+}
+p.phone-number {
+    font-size: 24px;
+    line-height: 1.2;
+    padding-top: 3px;
+    color: #333;
+    font-weight:bold;
+}
+.box-white {
+    background: white;
+    padding: 15px;
+}h2.pd-title {
+     font-family: bold, "khmer os";
+     font-size: 20px;
+ }
+
+.discription h2 {
+    font-family: bold, "khmer os";
+    font-size: 20px;
+}
+.carousel-indicators {
+    position: absolute;
+    bottom: 10px;
+    left: 0 !important;
+    z-index: 15;
+    width: 60%;
+    margin-left: 4px !important;
+    padding-left: 0;
+    list-style: none;
+    text-align: center;
+}.store-name {
+     margin-top: 43px;
+     display: block;
+     clear: both;
+     font-family: bold;
+ }
