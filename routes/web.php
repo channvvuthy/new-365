@@ -12,3 +12,7 @@ Route::get('logout', 'Update\UserController@getLogout');
 Route::get('update-profile', 'Update\UserController@getUpdateProfile');
 
 Route::get('post', 'Update\UserController@getPost');
+
+Route::post('login', 'Update\UserController@postLogin');
+
+Route::get('category/{name}', 'Update\ProductController@getProductByCat');

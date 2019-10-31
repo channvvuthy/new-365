@@ -140,3 +140,20 @@ span.error {
     border-top: 1px solid #096aa0;
     color:#fff;
 }
+.parent_drop{
+    background: #ffffff;
+    width: 24.3%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    margin: 0px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.wbg{
+    background-color: #fff;
+}
+.note {
+    padding: 10px 15px;
+    border-bottom: 1px solid #f3f2f2;
+    padding-bottom: 0px;
+}

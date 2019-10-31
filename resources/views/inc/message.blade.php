@@ -13,3 +13,10 @@
         })
     </script>
 @endif
+@if($errors->has('err'))
+    <script>
+        $(document).ready(function () {
+            $("#myModalLogin").modal('show');
+        })
+    </script>
+@endif

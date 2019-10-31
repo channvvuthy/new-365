@@ -14,6 +14,7 @@
                     <div class="form-group">
                         <label for="">Email</label>
                         <input type="text" placeholder="Email" class="form-control" name="email" required>
+                        <span class="error">{{$errors->first('err')}}</span>
                     </div>
                     <div class="form-group">
                         <label for="">Password</label>

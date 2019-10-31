@@ -116,6 +116,11 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
+                                    <label for="">Location detail</label>
+                                    <input type="text" name="location" id="location" class="form-control"
+                                           placeholder="Location detail">
+                                </div>
+                                <div class="form-group">
                                     <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i> Create</button>
                                 </div>
                             </form>

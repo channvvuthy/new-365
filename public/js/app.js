@@ -45524,6 +45524,12 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -45532,6 +45538,11 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
     created: function created() {
         this.fetchCategories();
         this.fetchFirstSubCat(1);
+    },
+    data: function data() {
+        return {
+            homeUrl: "http://127.0.0.1:8000"
+        };
     }
 });
 
@@ -45544,39 +45555,36 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "row" }, [
-    _c("div", { staticClass: "col-md-3 pr-0" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("div", { staticClass: "col-md-3 pr-0 toggle" }, [
       _c(
         "ul",
         { staticClass: "list-unstyled side" },
-        [
-          _vm._m(0),
-          _vm._v(" "),
-          _vm._l(_vm.allCategories.categories, function(category, index) {
-            return _c("li", [
-              _c(
-                "a",
-                {
-                  attrs: { href: "#", id: "parent", "data-id": category.id },
-                  on: {
-                    click: function($event) {
-                      $event.preventDefault()
-                      _vm.fetchFirstSubCat(category.id)
-                    }
+        _vm._l(_vm.allCategories.categories, function(category, index) {
+          return _c("li", [
+            _c(
+              "a",
+              {
+                attrs: { href: "", id: "parent", "data-id": category.id },
+                on: {
+                  click: function($event) {
+                    $event.preventDefault()
+                    _vm.fetchFirstSubCat(category.id)
                   }
-                },
-                [
-                  _c("i", { class: category.icon }),
-                  _vm._v(" " + _vm._s(category.name))
-                ]
-              )
-            ])
-          })
-        ],
-        2
+                }
+              },
+              [
+                _c("i", { class: category.icon }),
+                _vm._v(" " + _vm._s(category.name))
+              ]
+            )
+          ])
+        })
       )
     ]),
     _vm._v(" "),
-    _c("div", { staticClass: "col-md-9 pl-0" }, [
+    _c("div", { staticClass: "col-md-9 pl-0 toggle" }, [
       _c("div", { staticClass: "bg-white" }, [
         _vm.firstSubCat
           ? _c(
@@ -45584,10 +45592,16 @@ var render = function() {
               { staticClass: "sub" },
               _vm._l(_vm.firstSubCat.sub_category, function(subCat, index) {
                 return _c("div", { staticClass: "col-md-3 text-center pd" }, [
-                  _c("a", { attrs: { href: "" } }, [
-                    _c("i", { class: subCat.icon }),
-                    _vm._v(" " + _vm._s(subCat.name))
-                  ])
+                  _c(
+                    "a",
+                    {
+                      attrs: { href: _vm.homeUrl + "/category/" + subCat.name }
+                    },
+                    [
+                      _c("i", { class: subCat.icon }),
+                      _vm._v(" " + _vm._s(subCat.name))
+                    ]
+                  )
                 ])
               })
             )
@@ -45601,10 +45615,14 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "first" }, [
-      _c("a", { attrs: { href: "" } }, [
-        _c("i", { staticClass: "glyphicon glyphicon-list" }),
-        _vm._v(" Choose Category")
+    return _c("div", { staticClass: "col-md-12" }, [
+      _c("ul", { staticClass: "list-unstyled parent_drop" }, [
+        _c("li", { staticClass: "first" }, [
+          _c("a", { attrs: { href: "#" } }, [
+            _c("i", { staticClass: "glyphicon glyphicon-list" }),
+            _vm._v(" Choose Category")
+          ])
+        ])
       ])
     ])
   }
