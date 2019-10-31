@@ -51,6 +51,7 @@ class UserController extends Controller
     public function getStore($id)
     {
         $user = DB::table('users')->where('id', $id)->first();
-        return view('store')->with('user', $user);
+        $products = DB::table('posts')->where('user_id', $id)->paginate(15);
+        return view('store')->with('user', $user)->with('products', $products);
     }
 }
