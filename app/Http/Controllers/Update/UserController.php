@@ -48,9 +48,9 @@ class UserController extends Controller
     }
 
 
-    public function getStore($name)
+    public function getStore($id)
     {
-        $store =    DB::table('stores')->where('name', $name)->first();
-        return view('store')->with('store', $store);
+        $user = DB::table('users')->where('id', $id)->first();
+        return view('store')->with('user', $user);
     }
 }
