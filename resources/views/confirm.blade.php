@@ -10,9 +10,8 @@
             </div>
             <div class="modal-body">
                 <div class="form-group">
-                    <div class="alert alert-success">
-                        <p>We have sent an email with a confirmation link to your email address.</p>
-                        <p>Please verify that you entered a valid email address</p>
+                    <div class="alert alert-{{$errors->first('btn')}}">
+                        {!! $errors->first('msg') !!}
                     </div>
                 </div>
             </div>

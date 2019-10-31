@@ -1,4 +1,4 @@
-@if($errors->has('confirm'))
+@if($errors->has('msg'))
     <script>
         $(document).ready(function () {
             $("#myModalConfirm").modal('show');

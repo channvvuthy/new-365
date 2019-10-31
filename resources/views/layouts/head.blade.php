@@ -4,6 +4,7 @@
     <link rel="stylesheet" href="{{asset('css/bootstrap-theme.css')}}">
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
     <link rel="stylesheet" href="{{asset('css/nav.css')}}">
+    <link rel="stylesheet" href="{{asset('css/profile.css')}}">
     <link rel="stylesheet" href="{{asset('css/font-awesome.css')}}">
     <style>
         @font-face {

@@ -1,0 +1,21 @@
+.img-profile img {
+    width: 68px;
+    float: left;
+    margin-right: 15px;
+}
+
+.pro-info li {
+    line-height: 25px;
+}
+
+.ads {
+    color: #e37a01 !important;
+}
+.ads-list{
+    background-color: #fff;
+    overflow: hidden;
+    padding: 10px 0px;
+}
+.up-pro {
+    border: 1px solid #ddd;
+}
