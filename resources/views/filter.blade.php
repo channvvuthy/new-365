@@ -1,7 +1,19 @@
 <div class="col-md-12">
     <form class="form-inline filter" action="/action_page.php">
         <div class="form-group">
-            <label class="" for="email">City/Province : </label>
+            <label class="" for="email">Category : </label>
+            <select name="location" class="form-control">
+                <option value="">All City/Province</option>
+                <option value="Banteay Meanchey">
+                    Banteay Meanchey
+                </option>
+                <option value="Banteay Meanchey">
+                    Banteay Meanchey
+                </option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="" for="email">&nbsp; City/Province : </label>
             <select name="location" class="form-control">
                 <option value="">All City/Province</option>
                 <option value="Banteay Meanchey">

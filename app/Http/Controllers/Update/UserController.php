@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Update;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
@@ -44,5 +45,12 @@ class UserController extends Controller
             return redirect('profile');
         }
         return redirect()->back()->withInput()->withErrors(['err' => 'Incorrect email or password. please try again']);
+    }
+
+
+    public function getStore($name)
+    {
+        $store =    DB::table('stores')->where('name', $name)->first();
+        return view('store')->with('store', $store);
     }
 }

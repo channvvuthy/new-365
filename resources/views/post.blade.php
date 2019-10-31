@@ -14,18 +14,18 @@
                         @else
                             <img src="{{asset('images/profile-defult.png')}}" alt="">
                         @endif
-                        <div class="pro-info">
-                            <ul class="list-unstyled">
-                                <li><a href="{{URL::to('/')}}/update-profile" class="color"><b><i
-                                                    class="fa fa-pencil"></i> Change Info</b></a></li>
-                                <li><b>Username:</b> {{Auth::user()->name}}</li>
-                                @if(Auth::user()->hasStore)
-                                    <li><b>Store Name:</b> {{Auth::user()->hasStore->name}}</li>
-                                @else
-                                    <li><b>Store Name:</b> Not setup yet</li>
-                                @endif
-                            </ul>
-                        </div>
+                            <div class="pro-info">
+                                <ul class="list-unstyled">
+                                    <li><a href="{{URL::to('/')}}/update-profile" class="color"><b><i
+                                                        class="fa fa-pencil"></i> Change Info</b></a></li>
+                                    <li><b>Username:</b> {{Auth::user()->name}}</li>
+                                    <li><b>Store Url:</b> <a
+                                                href="{{URL::to('store')}}/{{Auth::user()->id}}"
+                                                class="color">{{URL::to('store')}}/{{Auth::user()->id}}</a>
+                                    </li>
+
+                                </ul>
+                            </div>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -53,11 +53,13 @@
                                             &nbsp;My Ads</a>
                                     </li>
                                     <li>
-                                        <a href="{{URL::to('update-profile')}}"><i class="fa fa-pencil"></i> Update profile
+                                        <a href="{{URL::to('update-profile')}}"><i class="fa fa-pencil"></i> Update
+                                            profile
                                             info</a>
                                     </li>
                                     <li class="active">
-                                        <a href="{{URL::to('post')}}"><i class="glyphicon glyphicon-send"></i> Post product</a>
+                                        <a href="{{URL::to('post')}}"><i class="glyphicon glyphicon-send"></i> Post
+                                            product</a>
                                     </li>
                                 </ul>
                             </div>
@@ -92,7 +94,8 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="">Description</label>
-                                    <textarea name="description" id="description" cols="30" rows="4" class="form-control"
+                                    <textarea name="description" id="description" cols="30" rows="4"
+                                              class="form-control"
                                               placeholder="Description"></textarea>
                                 </div>
                                 <div class="form-group">
@@ -121,7 +124,8 @@
                                            placeholder="Location detail">
                                 </div>
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i> Create</button>
+                                    <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i> Create
+                                    </button>
                                 </div>
                             </form>
                         </div>

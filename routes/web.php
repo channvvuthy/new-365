@@ -16,3 +16,5 @@ Route::get('post', 'Update\UserController@getPost');
 Route::post('login', 'Update\UserController@postLogin');
 
 Route::get('category/{name}', 'Update\ProductController@getProductByCat');
+
+Route::get('store/{name}', 'Update\UserController@getStore');
