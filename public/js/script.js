@@ -30,3 +30,50 @@ $(document).on('click', '.pro-thumbnail', function () {
     var data = $(this).attr('data');
     $(".bigImg").attr('src', data);
 })
+
+$(document).on('change', '#category', function () {
+    var id = $('option:selected', this).attr('data-id');
+    jQuery.ajax({
+        type: "GET",
+        url: $("#homeUrl").val() + '/api/category?id=' + id,
+        dataType: "json",
+        success: function (data) {
+            var sub = data.sub_category;
+            var option = "";
+            for (var i = 0; i < sub.length; i++) {
+                option += "<option value='" + sub[i].name + "'>" + sub[i].name + "</option>";
+            }
+            $("#sub").html(option);
+        }
+    })
+});
+
+
+$(function () {
+    // Multiple images preview in browser
+    var imagesPreview = function (input, placeToInsertImagePreview) {
+
+        if (input.files) {
+            var filesAmount = input.files.length;
+
+            for (i = 0; i < filesAmount; i++) {
+                var reader = new FileReader();
+
+                reader.onload = function (event) {
+                    $($.parseHTML('<img>')).attr('src', event.target.result).appendTo(placeToInsertImagePreview);
+                }
+
+                reader.readAsDataURL(input.files[i]);
+            }
+        }
+
+    };
+
+    $('#gallery-photo-add').on('change', function () {
+        imagesPreview(this, 'div.gallery');
+    });
+});
+
+$(document).on("click", ".img-post", function () {
+    $('#gallery-photo-add').click();
+})

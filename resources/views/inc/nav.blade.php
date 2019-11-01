@@ -1,4 +1,4 @@
 <br>
 <div class="container">
-    <category/>
+    <category type="home"/>
 </div>

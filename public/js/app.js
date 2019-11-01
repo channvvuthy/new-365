@@ -13265,180 +13265,220 @@ __WEBPACK_IMPORTED_MODULE_1_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_2_vuex
 __WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('category', __webpack_require__(43));
 __WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('product', __webpack_require__(46));
 __WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('productuser', __webpack_require__(60));
+__WEBPACK_IMPORTED_MODULE_1_vue___default.a.component('location', __webpack_require__(63));
 var store = new __WEBPACK_IMPORTED_MODULE_2_vuex__["a" /* default */].Store({
-    state: {
-        categories: [],
-        firstSubCat: [],
-        products: [],
-        productusers: [],
-        baseUrl: "http://127.0.0.1:8000/api",
-        loadingHomePage: true
-    },
-    getters: {
-        allCategories: function allCategories(state) {
-            return state.categories;
+        state: {
+                categories: [],
+                firstSubCat: [],
+                products: [],
+                productusers: [],
+                locations: [],
+                baseUrl: "http://127.0.0.1:8000/api",
+                loadingHomePage: true
         },
+        getters: {
+                allCategories: function allCategories(state) {
+                        return state.categories;
+                },
 
-        firstSubCat: function firstSubCat(state) {
-            return state.firstSubCat;
+                firstSubCat: function firstSubCat(state) {
+                        return state.firstSubCat;
+                },
+
+                allProducts: function allProducts(state) {
+                        return state.products;
+                },
+
+                allProductUsers: function allProductUsers(state) {
+                        return state.productusers;
+                },
+
+                allLocations: function allLocations(state) {
+                        return state.locations;
+                },
+
+                loading: function loading(state) {
+                        return state.loadingHomePage;
+                }
         },
+        actions: {
+                fetchCategories: function () {
+                        var _ref2 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee(_ref) {
+                                var commit = _ref.commit;
+                                var response;
+                                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+                                        while (1) {
+                                                switch (_context.prev = _context.next) {
+                                                        case 0:
+                                                                _context.next = 2;
+                                                                return __WEBPACK_IMPORTED_MODULE_3_axios___default.a.get(store.state.baseUrl + '/category');
 
-        allProducts: function allProducts(state) {
-            return state.products;
+                                                        case 2:
+                                                                response = _context.sent;
+
+                                                                commit('setCategories', response.data);
+
+                                                        case 4:
+                                                        case 'end':
+                                                                return _context.stop();
+                                                }
+                                        }
+                                }, _callee, this);
+                        }));
+
+                        function fetchCategories(_x) {
+                                return _ref2.apply(this, arguments);
+                        }
+
+                        return fetchCategories;
+                }(),
+                fetchFirstSubCat: function () {
+                        var _ref4 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee2(_ref3, id) {
+                                var commit = _ref3.commit;
+                                var response;
+                                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
+                                        while (1) {
+                                                switch (_context2.prev = _context2.next) {
+                                                        case 0:
+                                                                _context2.next = 2;
+                                                                return __WEBPACK_IMPORTED_MODULE_3_axios___default.a.get(store.state.baseUrl + '/category?id=' + id);
+
+                                                        case 2:
+                                                                response = _context2.sent;
+
+                                                                commit('setFirstSubCat', response.data);
+
+                                                        case 4:
+                                                        case 'end':
+                                                                return _context2.stop();
+                                                }
+                                        }
+                                }, _callee2, this);
+                        }));
+
+                        function fetchFirstSubCat(_x2, _x3) {
+                                return _ref4.apply(this, arguments);
+                        }
+
+                        return fetchFirstSubCat;
+                }(),
+                fetchAllProduct: function () {
+                        var _ref6 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee3(_ref5) {
+                                var commit = _ref5.commit;
+                                var response;
+                                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee3$(_context3) {
+                                        while (1) {
+                                                switch (_context3.prev = _context3.next) {
+                                                        case 0:
+                                                                _context3.next = 2;
+                                                                return __WEBPACK_IMPORTED_MODULE_3_axios___default.a.get(store.state.baseUrl + '/product');
+
+                                                        case 2:
+                                                                response = _context3.sent;
+
+                                                                commit('setProduct', response.data);
+
+                                                        case 4:
+                                                        case 'end':
+                                                                return _context3.stop();
+                                                }
+                                        }
+                                }, _callee3, this);
+                        }));
+
+                        function fetchAllProduct(_x4) {
+                                return _ref6.apply(this, arguments);
+                        }
+
+                        return fetchAllProduct;
+                }(),
+                fetchAllProductUser: function () {
+                        var _ref8 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee4(_ref7, id) {
+                                var commit = _ref7.commit;
+                                var response;
+                                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee4$(_context4) {
+                                        while (1) {
+                                                switch (_context4.prev = _context4.next) {
+                                                        case 0:
+                                                                _context4.next = 2;
+                                                                return __WEBPACK_IMPORTED_MODULE_3_axios___default.a.get(store.state.baseUrl + '/product/user/' + id);
+
+                                                        case 2:
+                                                                response = _context4.sent;
+
+                                                                commit('setProductUser', response.data);
+
+                                                        case 4:
+                                                        case 'end':
+                                                                return _context4.stop();
+                                                }
+                                        }
+                                }, _callee4, this);
+                        }));
+
+                        function fetchAllProductUser(_x5, _x6) {
+                                return _ref8.apply(this, arguments);
+                        }
+
+                        return fetchAllProductUser;
+                }(),
+                fetchAllLocation: function () {
+                        var _ref10 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee5(_ref9) {
+                                var commit = _ref9.commit;
+                                var response;
+                                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee5$(_context5) {
+                                        while (1) {
+                                                switch (_context5.prev = _context5.next) {
+                                                        case 0:
+                                                                _context5.next = 2;
+                                                                return __WEBPACK_IMPORTED_MODULE_3_axios___default.a.get(store.state.baseUrl + '/location');
+
+                                                        case 2:
+                                                                response = _context5.sent;
+
+                                                                commit('setLocation', response.data);
+
+                                                        case 4:
+                                                        case 'end':
+                                                                return _context5.stop();
+                                                }
+                                        }
+                                }, _callee5, this);
+                        }));
+
+                        function fetchAllLocation(_x7) {
+                                return _ref10.apply(this, arguments);
+                        }
+
+                        return fetchAllLocation;
+                }()
         },
+        mutations: {
+                setCategories: function setCategories(state, categories) {
+                        return state.categories = categories;
+                },
 
-        allProductUsers: function allProductUsers(state) {
-            return state.productusers;
-        },
+                setFirstSubCat: function setFirstSubCat(state, firstSubCat) {
+                        return state.firstSubCat = firstSubCat;
+                },
 
-        loading: function loading(state) {
-            return state.loadingHomePage;
+                setProduct: function setProduct(state, products) {
+                        return state.products = products, state.loadingHomePage = false;
+                },
+
+                setProductUser: function setProductUser(state, productusers) {
+                        return state.productusers = productusers;
+                },
+
+                setLocation: function setLocation(state, locations) {
+                        return state.locations = locations;
+                }
         }
-    },
-    actions: {
-        fetchCategories: function () {
-            var _ref2 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee(_ref) {
-                var commit = _ref.commit;
-                var response;
-                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
-                    while (1) {
-                        switch (_context.prev = _context.next) {
-                            case 0:
-                                _context.next = 2;
-                                return __WEBPACK_IMPORTED_MODULE_3_axios___default.a.get(store.state.baseUrl + '/category');
-
-                            case 2:
-                                response = _context.sent;
-
-                                commit('setCategories', response.data);
-
-                            case 4:
-                            case 'end':
-                                return _context.stop();
-                        }
-                    }
-                }, _callee, this);
-            }));
-
-            function fetchCategories(_x) {
-                return _ref2.apply(this, arguments);
-            }
-
-            return fetchCategories;
-        }(),
-        fetchFirstSubCat: function () {
-            var _ref4 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee2(_ref3, id) {
-                var commit = _ref3.commit;
-                var response;
-                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
-                    while (1) {
-                        switch (_context2.prev = _context2.next) {
-                            case 0:
-                                _context2.next = 2;
-                                return __WEBPACK_IMPORTED_MODULE_3_axios___default.a.get(store.state.baseUrl + '/category?id=' + id);
-
-                            case 2:
-                                response = _context2.sent;
-
-                                commit('setFirstSubCat', response.data);
-
-                            case 4:
-                            case 'end':
-                                return _context2.stop();
-                        }
-                    }
-                }, _callee2, this);
-            }));
-
-            function fetchFirstSubCat(_x2, _x3) {
-                return _ref4.apply(this, arguments);
-            }
-
-            return fetchFirstSubCat;
-        }(),
-        fetchAllProduct: function () {
-            var _ref6 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee3(_ref5) {
-                var commit = _ref5.commit;
-                var response;
-                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee3$(_context3) {
-                    while (1) {
-                        switch (_context3.prev = _context3.next) {
-                            case 0:
-                                _context3.next = 2;
-                                return __WEBPACK_IMPORTED_MODULE_3_axios___default.a.get(store.state.baseUrl + '/product');
-
-                            case 2:
-                                response = _context3.sent;
-
-                                commit('setProduct', response.data);
-
-                            case 4:
-                            case 'end':
-                                return _context3.stop();
-                        }
-                    }
-                }, _callee3, this);
-            }));
-
-            function fetchAllProduct(_x4) {
-                return _ref6.apply(this, arguments);
-            }
-
-            return fetchAllProduct;
-        }(),
-        fetchAllProductUser: function () {
-            var _ref8 = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee4(_ref7, id) {
-                var commit = _ref7.commit;
-                var response;
-                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee4$(_context4) {
-                    while (1) {
-                        switch (_context4.prev = _context4.next) {
-                            case 0:
-                                _context4.next = 2;
-                                return __WEBPACK_IMPORTED_MODULE_3_axios___default.a.get(store.state.baseUrl + '/product/user/' + id);
-
-                            case 2:
-                                response = _context4.sent;
-
-                                commit('setProductUser', response.data);
-
-                            case 4:
-                            case 'end':
-                                return _context4.stop();
-                        }
-                    }
-                }, _callee4, this);
-            }));
-
-            function fetchAllProductUser(_x5, _x6) {
-                return _ref8.apply(this, arguments);
-            }
-
-            return fetchAllProductUser;
-        }()
-    },
-    mutations: {
-        setCategories: function setCategories(state, categories) {
-            return state.categories = categories;
-        },
-
-        setFirstSubCat: function setFirstSubCat(state, firstSubCat) {
-            return state.firstSubCat = firstSubCat;
-        },
-
-        setProduct: function setProduct(state, products) {
-            return state.products = products, state.loadingHomePage = false;
-        },
-
-        setProductUser: function setProductUser(state, productusers) {
-            return state.productusers = productusers;
-        }
-    }
 });
 
 var app = new __WEBPACK_IMPORTED_MODULE_1_vue___default.a({
-    el: '#app',
-    store: store
+        el: '#app',
+        store: store
 });
 
 /***/ }),
@@ -45518,8 +45558,16 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuex__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_axios__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vuex__ = __webpack_require__(2);
+
+
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
 
 //
 //
@@ -45551,18 +45599,60 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 //
 //
 //
+//
+//
+//
+//
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    methods: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["b" /* mapActions */])(['fetchCategories', 'fetchFirstSubCat'])),
-    computed: Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["c" /* mapGetters */])(['allCategories', 'firstSubCat']),
+    props: {
+        type: String
+    },
+    methods: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_2_vuex__["b" /* mapActions */])(['fetchCategories', 'fetchFirstSubCat']), {
+        getSubCategory: function () {
+            var _ref = _asyncToGenerator( /*#__PURE__*/__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
+                var response;
+                return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
+                    while (1) {
+                        switch (_context.prev = _context.next) {
+                            case 0:
+                                _context.next = 2;
+                                return __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get(this.homeUrl + '/api/category?id=sub');
+
+                            case 2:
+                                response = _context.sent;
+
+                                this.subCategory = response.data;
+
+                            case 4:
+                            case 'end':
+                                return _context.stop();
+                        }
+                    }
+                }, _callee, this);
+            }));
+
+            function getSubCategory() {
+                return _ref.apply(this, arguments);
+            }
+
+            return getSubCategory;
+        }()
+    }),
+    computed: Object(__WEBPACK_IMPORTED_MODULE_2_vuex__["c" /* mapGetters */])(['allCategories', 'firstSubCat']),
     created: function created() {
         this.fetchCategories();
         this.fetchFirstSubCat(1);
+        if (this.type == 'filter') {
+            this.getSubCategory();
+        }
     },
     data: function data() {
         return {
-            homeUrl: "http://127.0.0.1:8000"
+            homeUrl: "http://127.0.0.1:8000",
+            subCategory: []
         };
     }
 });
@@ -45575,61 +45665,82 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "row" }, [
-    _vm._m(0),
-    _vm._v(" "),
-    _c("div", { staticClass: "col-md-3 pr-0 toggle" }, [
-      _c(
-        "ul",
-        { staticClass: "list-unstyled side" },
-        _vm._l(_vm.allCategories.categories, function(category, index) {
-          return _c("li", [
-            _c(
-              "a",
-              {
-                attrs: { href: "", id: "parent", "data-id": category.id },
-                on: {
-                  click: function($event) {
-                    $event.preventDefault()
-                    _vm.fetchFirstSubCat(category.id)
-                  }
-                }
-              },
-              [
-                _c("i", { class: category.icon }),
-                _vm._v(" " + _vm._s(category.name))
-              ]
-            )
+  return _vm.type == "home"
+    ? _c("div", { staticClass: "row" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-3 pr-0 toggle" }, [
+          _c(
+            "ul",
+            { staticClass: "list-unstyled side" },
+            _vm._l(_vm.allCategories.categories, function(category, index) {
+              return _c("li", [
+                _c(
+                  "a",
+                  {
+                    attrs: { href: "", id: "parent", "data-id": category.id },
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        _vm.fetchFirstSubCat(category.id)
+                      }
+                    }
+                  },
+                  [
+                    _c("i", { class: category.icon }),
+                    _vm._v(" " + _vm._s(category.name))
+                  ]
+                )
+              ])
+            })
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-9 pl-0 toggle" }, [
+          _c("div", { staticClass: "bg-white" }, [
+            _vm.firstSubCat
+              ? _c(
+                  "div",
+                  { staticClass: "sub" },
+                  _vm._l(_vm.firstSubCat.sub_category, function(subCat, index) {
+                    return _c(
+                      "div",
+                      { staticClass: "col-md-3 text-center pd" },
+                      [
+                        _c(
+                          "a",
+                          {
+                            attrs: {
+                              href: _vm.homeUrl + "/category/" + subCat.name
+                            }
+                          },
+                          [
+                            _c("i", { class: subCat.icon }),
+                            _vm._v(" " + _vm._s(subCat.name))
+                          ]
+                        )
+                      ]
+                    )
+                  })
+                )
+              : _vm._e()
           ])
-        })
-      )
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "col-md-9 pl-0 toggle" }, [
-      _c("div", { staticClass: "bg-white" }, [
-        _vm.firstSubCat
-          ? _c(
-              "div",
-              { staticClass: "sub" },
-              _vm._l(_vm.firstSubCat.sub_category, function(subCat, index) {
-                return _c("div", { staticClass: "col-md-3 text-center pd" }, [
-                  _c(
-                    "a",
-                    {
-                      attrs: { href: _vm.homeUrl + "/category/" + subCat.name }
-                    },
-                    [
-                      _c("i", { class: subCat.icon }),
-                      _vm._v(" " + _vm._s(subCat.name))
-                    ]
-                  )
-                ])
-              })
-            )
-          : _vm._e()
+        ])
       ])
-    ])
-  ])
+    : _c(
+        "select",
+        { staticClass: "form-control", attrs: { name: "category" } },
+        [
+          _c("option", { attrs: { value: "" } }, [_vm._v("All Category")]),
+          _vm._v(" "),
+          _vm._l(_vm.subCategory.sub_category, function(subCat, index) {
+            return _c("option", { domProps: { value: subCat.name } }, [
+              _vm._v(_vm._s(subCat.name))
+            ])
+          })
+        ],
+        2
+      )
 }
 var staticRenderFns = [
   function() {
@@ -46168,6 +46279,119 @@ if (false) {
   module.hot.accept()
   if (module.hot.data) {
     require("vue-hot-reload-api")      .rerender("data-v-63758ada", module.exports)
+  }
+}
+
+/***/ }),
+/* 63 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(14)
+/* script */
+var __vue_script__ = __webpack_require__(64)
+/* template */
+var __vue_template__ = __webpack_require__(65)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\Location.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-1da238a8", Component.options)
+  } else {
+    hotAPI.reload("data-v-1da238a8", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 64 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuex__ = __webpack_require__(2);
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    methods: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["b" /* mapActions */])(['fetchAllLocation'])),
+    computed: Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["c" /* mapGetters */])(['allLocations']),
+    created: function created() {
+        this.fetchAllLocation();
+    }
+});
+
+/***/ }),
+/* 65 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("label", {}, [_vm._v("City/Province : ")]),
+    _vm._v(" "),
+    _c(
+      "select",
+      { staticClass: "form-control", attrs: { name: "location" } },
+      [
+        _c("option", { attrs: { value: "" } }, [_vm._v("All City/Province")]),
+        _vm._v(" "),
+        _vm._l(_vm.allLocations.locations, function(location, index) {
+          return _c("option", { domProps: { value: location.name } }, [
+            _vm._v(_vm._s(location.name))
+          ])
+        })
+      ],
+      2
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-1da238a8", module.exports)
   }
 }
 

@@ -20,11 +20,19 @@ class CategoryController extends Controller
         $jsonResult = array();
         if ($request->id) {
             $id = $request->id;
-            $jsonResult = DB::table('categories')->where('parent_id', $id)->get();
-            return Response::json(array(
-                'sub_category' => $jsonResult),
-                200
-            );
+            if ($id == 'sub') {
+                $jsonResult = DB::table('categories')->where('parent_id', '!=', '0')->get();
+                return Response::json(array(
+                    'sub_category' => $jsonResult),
+                    200
+                );
+            } else {
+                $jsonResult = DB::table('categories')->where('parent_id', $id)->get();
+                return Response::json(array(
+                    'sub_category' => $jsonResult),
+                    200
+                );
+            }
         } else {
             $tableIds = DB::select(DB::raw("SELECT id,name,icon,description,status FROM categories WHERE parent_id=0"));
             for ($i = 0; $i < count($tableIds); $i++) {
@@ -36,6 +44,7 @@ class CategoryController extends Controller
                 $id = $tableIds[$i]->id;
                 $jsonResult[$i]["sub_category"] = DB::select(DB::raw("SELECT id,name,icon,description,status FROM categories WHERE parent_id =$id"));
             }
+
             return Response::json(array(
                 'categories' => $jsonResult),
                 200
@@ -50,7 +59,8 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public
+    function create()
     {
         //
     }
@@ -61,7 +71,8 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public
+    function store(Request $request)
     {
         $this->validate($request, [
             'name' => 'required|min:3|unique:categories',
@@ -88,7 +99,8 @@ class CategoryController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public
+    function show($id)
     {
         //
     }
@@ -99,7 +111,8 @@ class CategoryController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public
+    function edit($id)
     {
         //
     }
@@ -111,7 +124,8 @@ class CategoryController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public
+    function update(Request $request, $id)
     {
         //
     }
@@ -122,12 +136,14 @@ class CategoryController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public
+    function destroy($id)
     {
         //
     }
 
-    public function getAjaxRequestSubCategory(Request $request)
+    public
+    function getAjaxRequestSubCategory(Request $request)
     {
         $categories = Category::where('parent_id', $request->id)->where('status', 'Publish')->get();
         if (count($categories)) {

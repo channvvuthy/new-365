@@ -14,18 +14,18 @@
                         @else
                             <img src="{{asset('images/profile-defult.png')}}" alt="">
                         @endif
-                            <div class="pro-info">
-                                <ul class="list-unstyled">
-                                    <li><a href="{{URL::to('/')}}/update-profile" class="color"><b><i
-                                                        class="fa fa-pencil"></i> Change Info</b></a></li>
-                                    <li><b>Username:</b> {{Auth::user()->name}}</li>
-                                    <li><b>Store Url:</b> <a
-                                                href="{{URL::to('store')}}/{{Auth::user()->id}}"
-                                                class="color">{{URL::to('store')}}/{{Auth::user()->id}}</a>
-                                    </li>
+                        <div class="pro-info">
+                            <ul class="list-unstyled">
+                                <li><a href="{{URL::to('/')}}/update-profile" class="color"><b><i
+                                                    class="fa fa-pencil"></i> Change Info</b></a></li>
+                                <li><b>Username:</b> {{Auth::user()->name}}</li>
+                                <li><b>Store Url:</b> <a
+                                            href="{{URL::to('store')}}/{{Auth::user()->id}}"
+                                            class="color">{{URL::to('store')}}/{{Auth::user()->id}}</a>
+                                </li>
 
-                                </ul>
-                            </div>
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -69,34 +69,48 @@
                         <br>
                         <br>
                         <div class="col-md-6">
-                            <form action="update-profile" method="post" enctype="">
+                            @if($errors->has('message'))
+                                <div class="alert alert-success"><p><b>{{$errors->first('message')}}</b></p></div>
+                            @endif
+                            <form action="{{URL::to('create-ads')}}" method="post" enctype="multipart/form-data">
+                                {{ csrf_field() }}
                                 <div class="form-group">
-                                    <label for="">Category</label>
-                                    <select name="category" id="category" class="form-control">
+                                    <label for="">Category <span class="error"
+                                                                 title="The field is required">*</span></label>
+                                    <select name="category_name" id="category" class="form-control" required>
+                                        <option value="">Select category</option>
+                                        @if(!empty($categories))
+                                            @foreach($categories as $category)
+                                                <option value="{{$category->name}}"
+                                                        data-id="{{$category->id}}">{{$category->name}}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="">Sub Category <span class="error"
+                                                                     title="The field is required">*</span></label>
+                                    <select name="sub_category_name" id="sub" class="form-control" required>
                                         <option value=""></option>
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="">Sub Category</label>
-                                    <select name="sub" id="sub" class="form-control">
-                                        <option value=""></option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="">Product Name</label>
+                                    <label for="">Product Name <span class="error"
+                                                                     title="The field is required">*</span></label>
                                     <input type="text" name="name" id="name" class="form-control"
-                                           placeholder="Phone number">
+                                           placeholder="Product name" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="">Price</label>
+                                    <label for="">Price <span class="error"
+                                                              title="The field is required">*</span></label>
                                     <input type="text" name="price" id="price" class="form-control"
-                                           placeholder="Phone number">
+                                           placeholder="Price" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="">Description</label>
+                                    <label for="">Description <span class="error" title="The field is required">*</span></label>
                                     <textarea name="description" id="description" cols="30" rows="4"
                                               class="form-control"
-                                              placeholder="Description"></textarea>
+                                              placeholder="Description" required></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="">Name</label>
@@ -114,26 +128,38 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="">City/Province</label>
-                                    <select name="province" id="province" class="form-control">
-                                        <option value=""></option>
+                                    <select name="location_name" id="province" class="form-control">
+                                        <option value="">Select City/Province</option>
+                                        @if(!empty($locations))
+                                            @foreach($locations as $location)
+                                                <option value="{{$location->name}}">{{$location->name}}</option>
+                                            @endforeach
+                                        @endif
                                     </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="">Location detail</label>
-                                    <input type="text" name="location" id="location" class="form-control"
+                                    <input type="text" name="address" id="location" class="form-control"
                                            placeholder="Location detail">
                                 </div>
+                                <input type="file" multiple id="gallery-photo-add" class="hidden" name="images[]">
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i> Create
                                     </button>
                                 </div>
                             </form>
                         </div>
-                        <div class="col-md-2">
-                            <div class="up-pro">
-                                <img src="{{asset('images/')}}/upload_photo.png" alt="" class="img-responsive">
-                                <input type="file" name="image" id="" class="hidden">
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <div class="up-pro">
+                                        <img src="{{asset('images/')}}/upload_photo.png" alt=""
+                                             class="img-responsive img-post">
+                                    </div>
+                                </div>
                             </div>
+                            <hr>
+                            <div class="gallery"></div>
                         </div>
                         .
                     </div>

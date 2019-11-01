@@ -20,3 +20,7 @@ Route::get('category/{name}', 'Update\ProductController@getProductByCat');
 Route::get('store/{name}', 'Update\UserController@getStore');
 
 Route::get('detail/{id}', 'Update\ProductController@getDetail');
+
+Route::get('filter', 'Update\ProductController@getFilter');
+
+Route::post('create-ads', 'Update\UserController@postCreatePost');

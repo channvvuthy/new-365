@@ -7,12 +7,14 @@ Vue.use(Vuex);
 Vue.component('category', require('./components/Category.vue'));
 Vue.component('product', require('./components/Product.vue'));
 Vue.component('productuser', require('./components/Productuser.vue'));
+Vue.component('location', require('./components/Location.vue'));
 const store = new Vuex.Store({
     state: {
         categories: [],
         firstSubCat: [],
         products: [],
         productusers: [],
+        locations: [],
         baseUrl: "http://127.0.0.1:8000/api",
         loadingHomePage: true
     },
@@ -24,6 +26,8 @@ const store = new Vuex.Store({
         allProducts: state => state.products,
 
         allProductUsers: state => state.productusers,
+
+        allLocations: state => state.locations,
 
         loading: state => state.loadingHomePage
     },
@@ -46,6 +50,11 @@ const store = new Vuex.Store({
             const response = await axios.get(store.state.baseUrl + '/product/user/' + id);
             commit('setProductUser', response.data)
         },
+
+        async fetchAllLocation({commit}){
+            const response = await axios.get(store.state.baseUrl + '/location');
+            commit('setLocation', response.data)
+        },
     },
     mutations: {
         setCategories: (state, categories) => (state.categories = categories),
@@ -55,6 +64,8 @@ const store = new Vuex.Store({
         setProduct: (state, products) => (state.products = products, state.loadingHomePage = false),
 
         setProductUser: (state, productusers) => (state.productusers = productusers),
+
+        setLocation: (state, locations) => (state.locations = locations),
     }
 });
 

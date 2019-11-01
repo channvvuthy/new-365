@@ -60,6 +60,7 @@ button.btn.btn-default.dropdown-toggle {
 }
 button.btn.btn-default.last {
     border-left: 0px;
+    height: 34px;
 }
 button.btn.btn-default.last:focus{
     outline:none !important;
@@ -156,4 +157,12 @@ span.error {
     padding: 10px 15px;
     border-bottom: 1px solid #f3f2f2;
     padding-bottom: 0px;
+}
+.gallery img {
+    float:left;
+    height:120px;
+    border:1px solid #ddd;
+    margin-right:15px;
+    margin-bottom: 15px;
+    border-radius:4px;
 }

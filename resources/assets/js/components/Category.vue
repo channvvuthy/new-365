@@ -1,9 +1,9 @@
 <template>
-    <div class="row">
+    <div class="row" v-if="type=='home'">
         <div class="col-md-12">
-           <ul class="list-unstyled parent_drop">
-               <li class="first"><a href="#"><i class="glyphicon glyphicon-list"></i> Choose Category</a></li>
-           </ul>
+            <ul class="list-unstyled parent_drop">
+                <li class="first"><a href="#"><i class="glyphicon glyphicon-list"></i> Choose Category</a></li>
+            </ul>
         </div>
         <div class="col-md-3 pr-0 toggle">
             <ul class="list-unstyled side">
@@ -24,24 +24,40 @@
 
         </div>
     </div>
+    <select name="category" class="form-control" v-else>
+        <option value="">All Category</option>
+        <option :value="subCat.name" v-for="(subCat,index) in subCategory.sub_category">{{subCat.name}}</option>
+    </select>
 
 
 </template>
 
 <script>
+    import axios from 'axios';
     import {mapGetters, mapActions} from "vuex";
     export default {
+        props: {
+            type: String
+        },
         methods: {
             ...mapActions(['fetchCategories', 'fetchFirstSubCat']),
+            async getSubCategory(){
+                const response = await axios.get(this.homeUrl + '/api/category?id=sub');
+                this.subCategory = response.data;
+            }
         },
         computed: mapGetters(['allCategories', 'firstSubCat']),
         created(){
             this.fetchCategories();
             this.fetchFirstSubCat(1);
+            if (this.type == 'filter') {
+                this.getSubCategory();
+            }
         },
         data(){
             return {
-                homeUrl: "http://127.0.0.1:8000"
+                homeUrl: "http://127.0.0.1:8000",
+                subCategory: []
             }
         }
     }
