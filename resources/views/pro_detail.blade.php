@@ -74,8 +74,30 @@
                                     </div>
                                 </div>
                                 <div class="col-md-3">
-                                    <div class="contact-info">
-
+                                    <div class="lef-info">
+                                        <div class="contact-info">
+                                            <div class="profile1"
+                                                 style="background-image:url('{{asset('images/profile-defult.png')}}');background-size: contain;">
+                                            </div>
+                                            <div class="text-profile">
+                                                <p><b>{{$user->name}}</b></p>
+                                                <a href="{{URL::to('store')}}/{{$user->id}}" class="text-white">Show all
+                                                    product</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <p><i class="fa fa-phone"></i> {{($user->phone)?$user->phone:'xxx xxx xxx'}}</p>
+                                    <p><a href="{{URL::to('store')}}/{{$user->id}}" class="color"><i
+                                                    class="fa fa-globe"></i> {{URL::to('store')}}/{{$user->id}}</a></p>
+                                    <div class="location">
+                                        <h3><b>Location</b></h3>
+                                    </div>
+                                    <div class="iframe">
+                                        </iframe>
+                                        <iframe width="100%" height="258" frameborder="0" scrolling="no" marginheight="0"
+                                                marginwidth="0"
+                                                src="https://maps.google.com/maps?q=11.585230,104.86620&hl=es;z=17.5&amp;output=embed"></iframe>
                                     </div>
                                 </div>
                             </div>

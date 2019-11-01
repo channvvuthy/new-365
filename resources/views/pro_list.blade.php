@@ -28,7 +28,6 @@
                 </div>
             </div>
         </div>
-
         <div class="clearfix"></div>
         <br>
         <div id="products" class="list-group">

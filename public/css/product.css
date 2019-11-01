@@ -147,9 +147,18 @@ small{
 }
 .text-profile {
     position: relative;
-    top: 28px;
+    top: 11px;
     line-height: 15px;
 }
 a.btn.btn-warning.btn-xs.pull-right {
     margin-top: 32px;
+}
+.lef-info {
+    background: #007abf;
+    overflow: hidden;
+    padding: 10px;
+    color:#fff;
+}
+.lef-info a{
+    color:#fff;
 }
