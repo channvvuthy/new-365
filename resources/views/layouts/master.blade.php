@@ -11,6 +11,7 @@
 </head>
 <body>
     @yield('content')
+    <input type="hidden" name="homeUrl" id="homeUrl" value="http://127.0.0.1:8000">
     @include('register')
     @include('login')
     @include('confirm')

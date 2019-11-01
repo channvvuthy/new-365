@@ -372,6 +372,15 @@ class PostController extends Controller
         return response()->json(['success' => true, 'message' => 'Your product has been updated!']);
     }
 
+    public function getProductUser($id)
+    {
+        $products = DB::table('posts')->where('user_id', $id)->skip(0)->take(20)->get();
+        return Response::json(array(
+            'products' => $products),
+            200
+        );
+    }
+
     public function testAPI(Request $request)
     {
         $validator = Validator::make($request->all(), [

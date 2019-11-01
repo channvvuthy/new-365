@@ -21,6 +21,7 @@ Route::resource('banner', 'BannerController');
 Route::resource('location', 'LocationController');
 
 Route::resource('product', 'PostController');
+Route::get('product/user/{id}', 'PostController@getProductUser');
 
 Route::resource('user', 'UserController');
 

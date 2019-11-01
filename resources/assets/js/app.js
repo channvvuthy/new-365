@@ -6,11 +6,13 @@ import axios from 'axios';
 Vue.use(Vuex);
 Vue.component('category', require('./components/Category.vue'));
 Vue.component('product', require('./components/Product.vue'));
+Vue.component('productuser', require('./components/Productuser.vue'));
 const store = new Vuex.Store({
     state: {
         categories: [],
         firstSubCat: [],
         products: [],
+        productusers: [],
         baseUrl: "http://127.0.0.1:8000/api",
         loadingHomePage: true
     },
@@ -20,6 +22,8 @@ const store = new Vuex.Store({
         firstSubCat: state => state.firstSubCat,
 
         allProducts: state => state.products,
+
+        allProductUsers: state => state.productusers,
 
         loading: state => state.loadingHomePage
     },
@@ -38,6 +42,10 @@ const store = new Vuex.Store({
             const response = await axios.get(store.state.baseUrl + '/product');
             commit('setProduct', response.data)
         },
+        async fetchAllProductUser({commit}, id){
+            const response = await axios.get(store.state.baseUrl + '/product/user/' + id);
+            commit('setProductUser', response.data)
+        },
     },
     mutations: {
         setCategories: (state, categories) => (state.categories = categories),
@@ -45,6 +53,8 @@ const store = new Vuex.Store({
         setFirstSubCat: (state, firstSubCat) => (state.firstSubCat = firstSubCat),
 
         setProduct: (state, products) => (state.products = products, state.loadingHomePage = false),
+
+        setProductUser: (state, productusers) => (state.productusers = productusers),
     }
 });
 
