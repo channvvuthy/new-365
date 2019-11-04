@@ -121,7 +121,7 @@
                                     @endif
                                 </div>
                                 <div class="page">
-                                    {{$products->render()}}
+                                    {{$products->links()}}
                                 </div>
 
                             </div><!--/.container-->

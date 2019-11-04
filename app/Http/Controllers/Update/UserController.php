@@ -60,11 +60,13 @@ class UserController extends Controller
         $user = DB::table('users')->where('id', $id)->first();
         if (!empty($request->sort)) {
             if ($request->sort == 'new_ads') {
-                $products = Post::where('user_id', $id)->orderby('id', 'desc')->paginate(15);
+                $products = Post::orderBy('id', 'desc')->where('user_id', $id)->simplePaginate(15);
             }
             if ($request->sort == 'most_view') {
-                $products = Post::where('user_id', $id)->orderby('views')->paginate(15);
+                $products = Post::orderBy('views','desc')->where('user_id', $id)->simplePaginate(15);
             }
+        }else{
+            $products = Post::where('user_id', $id)->simplePaginate(15);
         }
 
         return view('store')->with('user', $user)->with('products', $products);
