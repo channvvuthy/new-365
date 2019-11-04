@@ -14,7 +14,7 @@
         <input type="hidden" name="uid" id="uid" value="{{Auth::user()->id}}">
     @endif
     @yield('content')
-    <input type="hidden" name="homeUrl" id="homeUrl" value="http://127.0.0.1:8000">
+    <input type="hidden" name="homeUrl" id="homeUrl" value="http://365daymarket.com/">
     @include('register')
     @include('login')
     @include('forgot')

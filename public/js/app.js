@@ -13283,7 +13283,7 @@ var store = new __WEBPACK_IMPORTED_MODULE_2_vuex__["a" /* default */].Store({
                 locations: [],
                 ads: [],
                 moreads: [],
-                baseUrl: "http://127.0.0.1:8000/api",
+                baseUrl: "http://365daymarket.com/api",
                 loadingHomePage: true
         },
         getters: {

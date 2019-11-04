@@ -18,7 +18,7 @@ const store = new Vuex.Store({
         locations: [],
         ads: [],
         moreads: [],
-        baseUrl: "http://127.0.0.1:8000/api",
+        baseUrl: "http://365daymarket.com/api",
         loadingHomePage: true
     },
     getters: {
