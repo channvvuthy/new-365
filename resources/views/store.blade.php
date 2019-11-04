@@ -90,11 +90,11 @@
                                             <div class="item col-lg-4">
                                                 @if(!empty($product->images))
                                                     <?php
-                                                    $image = json_decode($product->images);?>
-                                                    <img class="group list-group-image img-responsive" src="{{$image[0]}}">
+                                                    $image = json_decode($product->images,true);?>
+                                                        <a href="{{URL::to('/')}}/detail/{{$product->id}}"><img class="group list-group-image img-responsive" src="{{$image[0]}}"></a>
                                                 @endif
                                                 <div class="pro-des">
-                                                    <h4 class="group inner list-group-item-heading"><a href="">{{$product->name}}</a></h4>
+                                                    <h4 class="group inner list-group-item-heading"><a href="{{URL::to('/')}}/detail/{{$product->id}}">{{$product->name}}</a></h4>
                                                 </div>
 
                                                 <div class="pro-des">
