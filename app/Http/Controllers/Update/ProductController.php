@@ -48,6 +48,16 @@ class ProductController extends Controller
             $name = $request->name;
             $products = $products->where('name', 'LIKE', "%$name%");
         }
+        if (!empty($request->sort)) {
+            if ($request->sort == 'new_ads') {
+                $products = $products->orderby('id', 'desc');
+            }
+            if ($request->sort == 'most_view') {
+                $products = $products->orderby('views');
+            }
+        }else{
+            $products = $products->orderby('id', 'desc');
+        }
         if ($request->home) {
             if (empty($request->location) && empty($request->category) && empty($request->name)) {
                 return redirect()->back();

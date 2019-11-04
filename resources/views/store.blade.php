@@ -66,15 +66,21 @@
                                             <div class="btn-group">
                                                 <a href="#" id="list" class="btn btn-default btn-sm"><span
                                                             class="glyphicon glyphicon-th-list"></span></a>
-                                                <a href="#" id="grid" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-th"></span></a>
+                                                <a href="#" id="grid" class="btn btn-default btn-sm"><span
+                                                            class="glyphicon glyphicon-th"></span></a>
                                             </div>
                                         </div>
                                         <div class="col-md-6 text-right">
                                             <div class="pull-right">
                                                 <form action="" class="form-inline">
                                                     <div class="form-group">
+
                                                         <label class="" for="pwd">&nbsp; Sort:</label>
-                                                        <select name="postby" class="form-control"><option value="last">New ads</option> <option value="popular">Most View</option></select>
+
+                                                        <select name="postby" class="form-control">
+                                                            <option value="last">New ads</option>
+                                                            <option value="popular">Most View</option>
+                                                        </select>
                                                     </div>
                                                 </form>
                                             </div>
@@ -90,15 +96,20 @@
                                             <div class="item col-lg-4">
                                                 @if(!empty($product->images))
                                                     <?php
-                                                    $image = json_decode($product->images,true);?>
-                                                        <a href="{{URL::to('/')}}/detail/{{$product->id}}"><img class="group list-group-image img-responsive" src="{{$image[0]}}"></a>
+                                                    $image = json_decode($product->images, true);?>
+                                                    <a href="{{URL::to('/')}}/detail/{{$product->id}}"><img
+                                                                class="group list-group-image img-responsive"
+                                                                src="{{$image[0]}}"></a>
                                                 @endif
                                                 <div class="pro-des">
-                                                    <h4 class="group inner list-group-item-heading"><a href="{{URL::to('/')}}/detail/{{$product->id}}">{{$product->name}}</a></h4>
+                                                    <h4 class="group inner list-group-item-heading"><a
+                                                                href="{{URL::to('/')}}/detail/{{$product->id}}">{{$product->name}}</a>
+                                                    </h4>
                                                 </div>
 
                                                 <div class="pro-des">
-                                                    <p class="group inner list-group-item-text det">{{$product->sub_category_name}} / Post On
+                                                    <p class="group inner list-group-item-text det">{{$product->sub_category_name}}
+                                                        / Post On
                                                         : {{date('F d, Y', strtotime($product->created_at))}}</p>
                                                 </div>
                                                 <div class="pro-price"><p><b>${{$product->price}}</b></p></div>

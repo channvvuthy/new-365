@@ -15,12 +15,19 @@
                 </div>
                 <div class="col-md-6 text-right">
                     <div class="pull-right">
-                        <form action="" class="form-inline">
+                        <form action="?" class="form-inline" id="formSort">
                             <div class="form-group">
+                                @if(count($_GET))
+                                    @foreach($_GET as $key=> $input)
+                                        @if($key!='sort')
+                                            <input type="hidden" class="" name="{{$key}}" value="{{$_GET[$key]}}">
+                                        @endif
+                                    @endforeach
+                                @endif
                                 <label class="" for="pwd">&nbsp; Sort:</label>
-                                <select name="postby" class="form-control">
-                                    <option value="last">New ads</option>
-                                    <option value="popular">Most View</option>
+                                <select name="sort" class="form-control" id="sort">
+                                    <option value="new_ads" @if(@$_GET['sort']=="new_ads") selected @endif>New ads</option>
+                                    <option value="most_view" @if(@$_GET['sort']=="most_view") selected @endif>Most View</option>
                                 </select>
                             </div>
                         </form>
@@ -37,7 +44,7 @@
                         <div class="grid">
                             @if(!empty($product->images))
                                 <?php
-                                $image = json_decode($product->images,true);?>
+                                $image = json_decode($product->images, true);?>
                                 <a href="{{URL::to('detail')}}/{{$product->id}}"><img
                                             class="group list-group-image img-responsive" src="{{$image[0]}}"></a>
                             @endif

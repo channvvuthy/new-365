@@ -118,3 +118,7 @@ $(document).on("click", ".x", function () {
 $(document).on('click', '.img-responsive', function () {
     $("#image").click();
 })
+
+$(document).on("change", "#sort", function () {
+    $("#formSort").submit();
+})
