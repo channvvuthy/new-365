@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Update;
 
+use App\Post;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -58,11 +59,11 @@ class UserController extends Controller
     {
         $user = DB::table('users')->where('id', $id)->first();
         if (!empty($request->sort)) {
-            if($request->sort=='new_ads'){
-                $products = DB::table('posts')->where('user_id', $id)->orderby('id','desc')->paginate(15);
+            if ($request->sort == 'new_ads') {
+                $products = Post::where('user_id', $id)->orderby('id', 'desc')->paginate(15);
             }
-            if($request->sort=='most_view'){
-                $products = DB::table('posts')->where('user_id', $id)->orderby('views')->paginate(15);
+            if ($request->sort == 'most_view') {
+                $products = Post::where('user_id', $id)->orderby('views')->paginate(15);
             }
         }
 
