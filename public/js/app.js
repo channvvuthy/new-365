@@ -45724,7 +45724,7 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
     },
     data: function data() {
         return {
-            homeUrl: "http://127.0.0.1:8000",
+            homeUrl: "http://365daymarket.com/",
             subCategory: []
         };
     }

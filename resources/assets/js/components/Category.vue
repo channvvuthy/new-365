@@ -56,7 +56,7 @@
         },
         data(){
             return {
-                homeUrl: "http://127.0.0.1:8000",
+                homeUrl: "http://365daymarket.com/",
                 subCategory: []
             }
         }
