@@ -97,9 +97,11 @@
                                                 @if(!empty($product->images))
                                                     <?php
                                                     $image = json_decode($product->images, true);?>
-                                                    <a href="{{URL::to('/')}}/detail/{{$product->id}}"><img
-                                                                class="group list-group-image img-responsive"
-                                                                src="{{$image[0]}}"></a>
+                                                    <div class="img-store">
+                                                        <a href="{{URL::to('/')}}/detail/{{$product->id}}"><img
+                                                                    class="group list-group-image img-responsive"
+                                                                    src="{{$image[0]}}"></a>
+                                                    </div>
                                                 @endif
                                                 <div class="pro-des">
                                                     <h4 class="group inner list-group-item-heading"><a

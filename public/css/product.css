@@ -188,3 +188,16 @@ strong.x {
     float: left;
     margin-right: 15px;
 }
+div#products {
+    background: white;
+    overflow: hidden;
+}
+.item.col-lg-4.list-group-item .img-store {
+    overflow: hidden;
+    float: left;
+    width: 25%;
+    margin-right: 15px;
+}
+.item.col-lg-4.list-group-item .pro-price {
+    text-indent: 12px;
+}
