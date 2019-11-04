@@ -29,7 +29,7 @@
                     </div>
                     <hr>
                     <div class="form-group text-center">
-                        <p>Have already account?<a href="#" class="color"> Login</a></p>
+                        <p>Have already account?<a href="#" class="color loginInstead"> Login</a></p>
                     </div>
                 </form>
             </div>

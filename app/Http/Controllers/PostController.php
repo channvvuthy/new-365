@@ -372,13 +372,27 @@ class PostController extends Controller
         return response()->json(['success' => true, 'message' => 'Your product has been updated!']);
     }
 
-    public function getProductUser($id)
+    public function getProductUser(Request $request, $id)
     {
-        $products = DB::table('posts')->where('user_id', $id)->skip(0)->take(20)->get();
+        $offset = 0;
+        $limit = 10;
+        if (!empty($request->offset) && !empty($request->limit)) {
+            $offset = $request->offset;
+            $limit = $request->limit;
+        }
+        $products = DB::table('posts')->where('user_id', $id)->skip($offset)->take($limit)->get();
         return Response::json(array(
             'products' => $products),
             200
         );
+    }
+
+    public function getProductUserById($id)
+    {
+
+        DB::table('posts')->where('id', $id)->delete();
+        return redirect()->back()->withErrors(['dlMsg' => 'Product has been deleted']);
+
     }
 
     public function testAPI(Request $request)

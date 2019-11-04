@@ -10,10 +10,15 @@
     @yield('head')
 </head>
 <body>
+    @if(Auth::check())
+        <input type="hidden" name="uid" id="uid" value="{{Auth::user()->id}}">
+    @endif
     @yield('content')
     <input type="hidden" name="homeUrl" id="homeUrl" value="http://127.0.0.1:8000">
     @include('register')
     @include('login')
+    @include('forgot')
+    @include('reset')
     @include('confirm')
     @include('layouts.footer')
     @yield('foot')

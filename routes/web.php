@@ -24,3 +24,21 @@ Route::get('detail/{id}', 'Update\ProductController@getDetail');
 Route::get('filter', 'Update\ProductController@getFilter');
 
 Route::post('create-ads', 'Update\UserController@postCreatePost');
+
+Route::get('product/user/delete/{id}', 'PostController@getProductUserById');
+
+Route::get('update/product/{id}', 'Update\UserController@getUpdateProduct');
+
+Route::get('delete/product/image', 'Update\ProductController@getDeleteProImage');
+
+Route::post('update-ads', 'Update\UserController@postUpdateProduct');
+
+Route::post('update-profile', 'Update\UserController@postUpdateProfile');
+
+Route::post('forgot', 'Update\UserController@postForgot');
+
+Route::get('reset-password/{code}', 'Update\UserController@getReset');
+
+Route::get('reset/{code}', 'Update\UserController@getReset');
+
+Route::post('reset', 'Update\UserController@postReset');

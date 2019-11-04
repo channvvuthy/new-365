@@ -14,18 +14,18 @@
                         @else
                             <img src="{{asset('images/profile-defult.png')}}" alt="">
                         @endif
-                            <div class="pro-info">
-                                <ul class="list-unstyled">
-                                    <li><a href="{{URL::to('/')}}/update-profile" class="color"><b><i
-                                                        class="fa fa-pencil"></i> Change Info</b></a></li>
-                                    <li><b>Username:</b> {{Auth::user()->name}}</li>
-                                    <li><b>Store Url:</b> <a
-                                                href="{{URL::to('store')}}/{{Auth::user()->id}}"
-                                                class="color">{{URL::to('store')}}/{{Auth::user()->id}}</a>
-                                    </li>
+                        <div class="pro-info">
+                            <ul class="list-unstyled">
+                                <li><a href="{{URL::to('/')}}/update-profile" class="color"><b><i
+                                                    class="fa fa-pencil"></i> Change Info</b></a></li>
+                                <li><b>Username:</b> {{Auth::user()->name}}</li>
+                                <li><b>Store Url:</b> <a
+                                            href="{{URL::to('store')}}/{{Auth::user()->id}}"
+                                            class="color">{{URL::to('store')}}/{{Auth::user()->id}}</a>
+                                </li>
 
-                                </ul>
-                            </div>
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -49,13 +49,16 @@
                             <div class="ads">
                                 <ul class="nav nav-tabs">
                                     <li>
-                                        <a href="{{URL::to('profile')}}"><i class="glyphicon glyphicon-folder-open"></i> &nbsp;My Ads</a>
+                                        <a href="{{URL::to('profile')}}"><i class="glyphicon glyphicon-folder-open"></i>
+                                            &nbsp;My Ads</a>
                                     </li>
                                     <li class="active">
-                                        <a href="{{URL::to('update-profile')}}"><i class="fa fa-pencil"></i> Update profile info</a>
+                                        <a href="{{URL::to('update-profile')}}"><i class="fa fa-pencil"></i> Update
+                                            profile info</a>
                                     </li>
                                     <li>
-                                        <a href="{{URL::to('post')}}"><i class="glyphicon glyphicon-send"></i> Post product</a>
+                                        <a href="{{URL::to('post')}}"><i class="glyphicon glyphicon-send"></i> Post
+                                            product</a>
                                     </li>
                                 </ul>
                             </div>
@@ -65,53 +68,73 @@
                         <br>
                         <br>
                         <div class="col-md-6">
-                            <form action="update-profile" method="post" enctype="">
+                            @if($errors->has('message'))
+                                <br>
+                                <div class="alert alert-success"><p><b>{{$errors->first('message')}}</b></p></div>
+                            @endif
+                            <form action="update-profile" method="post" enctype="multipart/form-data">
+                                {{csrf_field()}}
                                 <div class="form-group">
                                     <label for="">Username</label>
-                                    <input type="text" name="name" id="name" class="form-control" placeholder="Your name" value="{{Auth::user()->name}}">
+                                    <input type="text" name="name" id="name" class="form-control"
+                                           placeholder="Your name" value="{{Auth::user()->name}}">
                                 </div>
                                 <div class="form-group">
                                     <label for="">Email</label>
-                                    <input type="text" name="email" id="email" class="form-control" placeholder="Email" value="{{Auth::user()->email}}">
+                                    <input type="text" name="email" id="email" class="form-control" placeholder="Email"
+                                           value="{{Auth::user()->email}}">
                                 </div>
                                 <div class="form-group">
                                     <label for="">Phone</label>
-                                    <input type="text" name="phone" id="phone" class="form-control" placeholder="Phone number" value="{{Auth::user()->phone}}">
+                                    <input type="text" name="phone" id="phone" class="form-control"
+                                           placeholder="Phone number" value="{{Auth::user()->phone}}">
                                 </div>
                                 <div class="form-group">
                                     <label for="">City/Province</label>
-                                    <select name="province" id="province" class="form-control">
-                                        <option value=""></option>
+                                    <select name="location" id="location" class="form-control">
+                                        <option value="">Choose City/Province</option>
+                                        @if(!empty($locations))
+                                            @foreach($locations as $location)
+                                                <option value="{{$location->name}}">{{$location->name}}</option>
+                                            @endforeach
+                                        @endif
                                     </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="">Address</label>
-                                    <textarea name="address" id="address" cols="30" rows="6" class="form-control"></textarea>
+                                    <textarea name="address" id="address" cols="30" rows="6"
+                                              class="form-control">{{Auth::user()->address}}</textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="">Google Map</label>
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <input type="text" class="form-control" placeholder="Longitude" name="longitude">
+                                            <input type="text" class="form-control" placeholder="Longitude"
+                                                   name="longitude" value="{{Auth::user()->longitude}}">
                                         </div>
                                         <div class="col-md-6">
-                                            <input type="text" class="form-control" placeholder="Latitude" name="latitude">
+                                            <input type="text" class="form-control" placeholder="Latitude"
+                                                   name="latitude" value="{{Auth::user()->latitude}}">
                                         </div>
                                     </div>
                                 </div>
+                                <input type="file" name="image" id="image" class="hidden">
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-primary"><i class="fa fa-pencil"></i> Update info</button>
+                                    <button type="submit" class="btn btn-primary"><i class="fa fa-pencil"></i> Update
+                                        info
+                                    </button>
                                 </div>
                             </form>
                         </div>
                         <div class="col-md-2">
                             <div class="up-pro">
                                 @if(!empty(Auth::user()->image))
-                                    <img src="{{asset('images/')}}/{{Auth::user()->image}}" alt="" class="img-responsive">
+                                    <img src="{{asset('images/')}}/{{Auth::user()->image}}" alt=""
+                                         class="img-responsive">
                                 @else
                                     <img src="{{asset('images/profile-defult.png')}}" alt="" class="img-responsive">
                                 @endif
-                                <input type="file" name="image" id="" class="hidden">
+
                             </div>
                         </div>
                         .

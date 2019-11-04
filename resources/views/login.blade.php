@@ -26,11 +26,11 @@
                         </div>
                     </div>
                     <div class="form-group text-center">
-                        <a href="" class="color">Forgot your password?</a>
+                        <a href="" class="color forgotInsead">Forgot your password?</a>
                     </div>
                     <hr>
                     <div class="form-group text-center">
-                        <p>Don't have account?<a href="#" class="color"> Register</a></p>
+                        <p>Don't have account?<a href="#" class="color registerInstead"> Register</a></p>
                     </div>
                 </form>
 

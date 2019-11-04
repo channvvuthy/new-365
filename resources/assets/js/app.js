@@ -8,6 +8,7 @@ Vue.component('category', require('./components/Category.vue'));
 Vue.component('product', require('./components/Product.vue'));
 Vue.component('productuser', require('./components/Productuser.vue'));
 Vue.component('location', require('./components/Location.vue'));
+Vue.component('myads', require('./components/Myads.vue'));
 const store = new Vuex.Store({
     state: {
         categories: [],
@@ -15,6 +16,8 @@ const store = new Vuex.Store({
         products: [],
         productusers: [],
         locations: [],
+        ads: [],
+        moreads: [],
         baseUrl: "http://127.0.0.1:8000/api",
         loadingHomePage: true
     },
@@ -29,6 +32,7 @@ const store = new Vuex.Store({
 
         allLocations: state => state.locations,
 
+        allAds: state => state.ads,
         loading: state => state.loadingHomePage
     },
     actions: {
@@ -55,6 +59,19 @@ const store = new Vuex.Store({
             const response = await axios.get(store.state.baseUrl + '/location');
             commit('setLocation', response.data)
         },
+
+        async fetchAds({commit}, uid){
+            const response = await axios.get(store.state.baseUrl + '/product/user/' + uid);
+            commit('setAds', response.data.products)
+        },
+
+        async fetchMoreAds({commit}, uid){
+            const response = await axios.get(store.state.baseUrl + '/product/user/' + uid);
+            for (var i = 0; i < response.data.products.length; i++) {
+                console.log(store.state.ads.push(response.data.products[i]))
+            }
+
+        },
     },
     mutations: {
         setCategories: (state, categories) => (state.categories = categories),
@@ -66,6 +83,9 @@ const store = new Vuex.Store({
         setProductUser: (state, productusers) => (state.productusers = productusers),
 
         setLocation: (state, locations) => (state.locations = locations),
+
+        setAds: (state, ads) => (state.ads = ads),
+
     }
 });
 

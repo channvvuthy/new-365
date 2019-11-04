@@ -5,6 +5,22 @@ $(document).on('click', '.myModalLogin', function () {
     $("#myModalLogin").modal('show');
 });
 
+$(document).on("click", ".loginInstead", function (e) {
+    e.preventDefault();
+    $("#myModalRegister").modal("hide");
+    $("#myModalLogin").modal('show');
+});
+$(document).on("click", ".registerInstead", function (e) {
+    e.preventDefault();
+    $("#myModalRegister").modal("show");
+    $("#myModalLogin").modal('hide');
+});
+$(document).on("click", ".forgotInsead", function (e) {
+    e.preventDefault();
+    $("#myForgot").modal("show");
+    $("#myModalLogin").modal('hide');
+});
+
 $(document).on('click', '.first a', function (e) {
     e.preventDefault();
     $(".toggle").toggleClass('hidden');
@@ -16,6 +32,7 @@ $('#list').click(function (e) {
     $(".item.col-lg-4").css({"height": "auto"});
     $("#grid").removeClass('active');
     $(".list-thum").removeClass('hidden');
+    $(".grid").addClass('marginRight');
 });
 
 $('#grid').click(function (e) {
@@ -24,6 +41,7 @@ $('#grid').click(function (e) {
     $(".item.col-lg-4").css({"height": "300px"})
     $("#list").removeClass('active');
     $(".list-thum").addClass('hidden');
+    $(".grid").removeClass('marginRight');
 });
 
 $(document).on('click', '.pro-thumbnail', function () {
@@ -76,4 +94,27 @@ $(function () {
 
 $(document).on("click", ".img-post", function () {
     $('#gallery-photo-add').click();
+});
+
+//delete image ads
+$(document).on("click", ".x", function () {
+    var data = {};
+    data.url = $(this).attr('data-url');
+    data.key = $(this).attr('data-key');
+    data.pid = $(this).attr('data-id');
+    jQuery.ajax({
+        type: "GET",
+        url: $("#homeUrl").val() + '/delete/product/image/',
+        dataType: "json",
+        data: data,
+        success: function (data) {
+
+        }
+    });
+    $(this).parent().remove();
+
+})
+
+$(document).on('click', '.img-responsive', function () {
+    $("#image").click();
 })

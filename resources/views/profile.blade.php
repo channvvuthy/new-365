@@ -14,18 +14,18 @@
                         @else
                             <img src="{{asset('images/profile-defult.png')}}" alt="">
                         @endif
-                            <div class="pro-info">
-                                <ul class="list-unstyled">
-                                    <li><a href="{{URL::to('/')}}/update-profile" class="color"><b><i
-                                                        class="fa fa-pencil"></i> Change Info</b></a></li>
-                                    <li><b>Username:</b> {{Auth::user()->name}}</li>
-                                    <li><b>Store Url:</b> <a
-                                                href="{{URL::to('store')}}/{{Auth::user()->id}}"
-                                                class="color">{{URL::to('store')}}/{{Auth::user()->id}}</a>
-                                    </li>
+                        <div class="pro-info">
+                            <ul class="list-unstyled">
+                                <li><a href="{{URL::to('/')}}/update-profile" class="color"><b><i
+                                                    class="fa fa-pencil"></i> Change Info</b></a></li>
+                                <li><b>Username:</b> {{Auth::user()->name}}</li>
+                                <li><b>Store Url:</b> <a
+                                            href="{{URL::to('store')}}/{{Auth::user()->id}}"
+                                            class="color">{{URL::to('store')}}/{{Auth::user()->id}}</a>
+                                </li>
 
-                                </ul>
-                            </div>
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -66,19 +66,13 @@
                         <br>
                         <div class="clearfix"></div>
                         <div class="col-md-12">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th>Ads Photo</th>
-                                    <th>Name</th>
-                                    <th>Price</th>
-                                    <th>Status</th>
-                                    <th>Action</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                </tbody>
-                            </table>
+                            @if($errors->has('dlMsg'))
+                                <br>
+                                <div class="alert alert-success">
+                                    <p>{{$errors->first('dlMsg')}}</p>
+                                </div>
+                            @endif
+                            <myads/>
                         </div>
                     </div>
                 </div>

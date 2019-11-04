@@ -22,6 +22,7 @@
                         @endforeach
                     @endif
                 </select>
+                <input type="hidden" name="home" value="Search from home">
             </div>
         </div>
         <div class="form-group flex">

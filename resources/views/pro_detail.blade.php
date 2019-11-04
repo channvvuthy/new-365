@@ -27,7 +27,7 @@
                                 <div class="col-md-9">
                                     <div class="pro-spec">
                                         <?php
-                                        $images = json_decode($products->images);
+                                        $images = json_decode($products->images,true);
                                         ?>
                                         <div class="img-spec">
                                             <img src="{{$images[0]}}" alt="main-image" class="bigImg">

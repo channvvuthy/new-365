@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers\Update;
 
+use App\Post;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Queue\RedisQueue;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
+use  Response;
 
 class ProductController extends Controller
 {
@@ -41,9 +45,33 @@ class ProductController extends Controller
             $name = $request->name;
             $products = $products->where('name', 'LIKE', "%$name%");
         }
+        if ($request->home) {
+            if (empty($request->location) && empty($request->category) && empty($request->name)) {
+                return redirect()->back();
+            }
+        }
         $products = $products->paginate(15);
         $categories = DB::table('categories')->where('status', 'Publish')->where('parent_id', '!=', 0)->get();
         $locations = DB::table('locations')->get();
         return view('pro_by_cat')->with('products', $products)->with('name', $request->category)->with('categories', $categories)->with('locations', $locations);
     }
+
+    public function getDeleteProImage(Request $request)
+    {
+        $product = Post::find($request->pid);
+        $images = json_decode($product->images);
+        $key = $request->key;
+        $arr = explode("/", $images[$key]);
+        $imgFile = $arr;
+        unset($images[$key]);
+        $imgFile = end($imgFile);
+        File::delete('images/' . $imgFile);
+        $product->images = json_encode($images);
+        $product->save();
+        return Response::json(array(
+            'img' => $imgFile),
+            200
+        );
+    }
+
 }

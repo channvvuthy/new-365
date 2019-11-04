@@ -37,6 +37,7 @@ img.group.list-group-image.img-responsive {
     margin: auto;
     height: 200px;
     margin-bottom: 15px;
+
 }
 
 .item.col-lg-4 {
@@ -161,4 +162,29 @@ a.btn.btn-warning.btn-xs.pull-right {
 }
 .lef-info a{
     color:#fff;
+}
+strong.x {
+    background: red;
+    width: 18px;
+    height: 18px;
+    display: block;
+    text-align: center;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 12px;
+    line-height: 20px;
+    position: absolute;
+    top: -12px;
+    right: -6px;
+    cursor: pointer;
+}
+.gallery ul li {
+    margin-right: 10px;
+}
+.grid.marginRight a {
+    display: block;
+    overflow: hidden;
+    max-width: 25%;
+    float: left;
+    margin-right: 15px;
 }
