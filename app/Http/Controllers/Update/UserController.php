@@ -54,10 +54,18 @@ class UserController extends Controller
     }
 
 
-    public function getStore($id)
+    public function getStore(Request $request, $id)
     {
         $user = DB::table('users')->where('id', $id)->first();
-        $products = DB::table('posts')->where('user_id', $id)->paginate(15);
+        if (!empty($request->sort)) {
+            if($request->sort=='new_ads'){
+                $products = DB::table('posts')->where('user_id', $id)->orderby('id','desc')->paginate(15);
+            }
+            if($request->sort=='most_view'){
+                $products = DB::table('posts')->where('user_id', $id)->orderby('views')->paginate(15);
+            }
+        }
+
         return view('store')->with('user', $user)->with('products', $products);
     }
 

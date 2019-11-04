@@ -72,14 +72,14 @@
                                         </div>
                                         <div class="col-md-6 text-right">
                                             <div class="pull-right">
-                                                <form action="" class="form-inline">
+                                                <form action="?" class="form-inline" id="formSort">
                                                     <div class="form-group">
 
                                                         <label class="" for="pwd">&nbsp; Sort:</label>
 
-                                                        <select name="postby" class="form-control">
-                                                            <option value="last">New ads</option>
-                                                            <option value="popular">Most View</option>
+                                                        <select name="sort" class="form-control" id="sort">
+                                                            <option value="new_ads" @if(@$_GET['sort']=='new_ads') selected @endif>New ads</option>
+                                                            <option value="most_view" @if(@$_GET['sort']=='most_view') selected @endif>Most View</option>
                                                         </select>
                                                     </div>
                                                 </form>
