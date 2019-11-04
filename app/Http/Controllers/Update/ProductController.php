@@ -20,7 +20,10 @@ class ProductController extends Controller
 
     public function getDetail($id)
     {
-        $products = DB::table('posts')->where('id', $id)->first();
+        $products = Post::find($id);
+        $view = $products->views + 1;
+        $products->views = $view;
+        $products->save();
         $user = DB::table('users')->where('id', $products->user_id)->first();
         return view('pro_detail')->with('products', $products)->with('user', $user);
     }
