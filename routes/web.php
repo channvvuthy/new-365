@@ -42,3 +42,7 @@ Route::get('reset-password/{code}', 'Update\UserController@getReset');
 Route::get('reset/{code}', 'Update\UserController@getReset');
 
 Route::post('reset', 'Update\UserController@postReset');
+
+Route::get('about', 'Update\AboutControllerr@getAbout');
+
+Route::post('about', 'Update\AboutControllerr@postAbout');
