@@ -15,7 +15,9 @@ class ProductController extends Controller
     public function getProductByCat($name)
     {
         $products = DB::table('posts')->where('sub_category_name', $name)->orderby('id', 'desc')->paginate(15);
-        return view('pro_by_cat')->with('name', $name)->with('products', $products);
+        $categories = DB::table('categories')->where('status', 'Publish')->where('parent_id', '!=', 0)->get();
+        $locations = DB::table('locations')->get();
+        return view('pro_by_cat')->with('name', $name)->with('products', $products)->with('categories', $categories)->with('locations', $locations);;
     }
 
     public function getDetail($id)
@@ -25,7 +27,9 @@ class ProductController extends Controller
         $products->views = $view;
         $products->save();
         $user = DB::table('users')->where('id', $products->user_id)->first();
-        return view('pro_detail')->with('products', $products)->with('user', $user);
+        $categories = DB::table('categories')->where('status', 'Publish')->where('parent_id', '!=', 0)->get();
+        $locations = DB::table('locations')->get();
+        return view('pro_detail')->with('products', $products)->with('user', $user)->with('categories', $categories)->with('locations', $locations);
     }
 
     public function getFilter(Request $request)
