@@ -26,11 +26,11 @@
                                             <p><b>Member since {{date('F d, Y', strtotime($user->created_at))}}</b></p>
                                         </div>
                                         <div class="social pull-right">
-                                            <ul class="list-inline" style="position: relative;bottom: -40px;">
+                                            <ul class="list-inline" style="position: relative;bottom: -40px;z-index:2;">
                                                 <li><a href="https://www.facebook.com/sharer/sharer.php?u={{URL::to('/')}}/store/{{$user->id}}" class="btn btn-default btn-md"><i
                                                                 class="fa fa-share"></i>
                                                         Share</a></li>
-                                                <li><a href="" class="btn btn-primary btn-md"><i
+                                                <li><a href="tel:010545450" class="btn btn-primary btn-md"><i
                                                                 class="fa fa-phone"></i>
                                                         Call Now</a></li>
                                             </ul>
@@ -41,7 +41,7 @@
                             <div class="clearfix"></div>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <ul class="nav nav-tabs">
+                                    <ul class="nav nav-tabs" style="z-index:1">
                                         <li class="active">
                                             <a href="{{URL::to('store')}}/{{$user->id}}" class="color">
                                                 &nbsp;All Posts</a>
