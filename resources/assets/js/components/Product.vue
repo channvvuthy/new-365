@@ -12,11 +12,11 @@
                         <div class="col-md-3" v-for="(product,index) in allProducts.products">
                             <div class="product">
                                 <div class="pro-img">
-                                    <a :href="homeUrl+'/detail/'+product.id"><img :src="image(product.images)" alt=""
+                                    <a :href="homeUrl+'detail/'+product.id"><img :src="image(product.images)" alt=""
                                                                                   class="img-responsive"></a>
                                 </div>
                                 <div class="pro-des">
-                                    <h3><a :href="homeUrl+'/detail/'+product.id">{{product.name}}</a></h3>
+                                    <h3><a :href="homeUrl+'detail/'+product.id">{{product.name}}</a></h3>
                                 </div>
                                 <div class="pro-price">
                                     <b>${{product.price}}</b>
@@ -33,11 +33,11 @@
                         <div class="col-md-3" v-for="(popular,index) in allProducts.populars">
                             <div class="product">
                                 <div class="pro-img">
-                                    <a :href="homeUrl+'/detail/'+popular.id"><img :src="image(popular.images)" alt=""
+                                    <a :href="homeUrl+'detail/'+popular.id"><img :src="image(popular.images)" alt=""
                                                                                   class="img-responsive"></a>
                                 </div>
                                 <div class="pro-des">
-                                    <h3><a :href="homeUrl+'/detail/'+popular.id">{{popular.name}}</a></h3>
+                                    <h3><a :href="homeUrl+'detail/'+popular.id">{{popular.name}}</a></h3>
                                 </div>
                                 <div class="pro-price">
                                     <b>${{popular.price}}</b>
