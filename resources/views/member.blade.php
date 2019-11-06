@@ -48,10 +48,10 @@
                                             <a href="{{URL::to('store')}}/{{$user->id}}" class="color">
                                                 &nbsp;All Posts</a>
                                         </li>
-                                        <li class="active">
+                                        <li>
                                             <a href="{{URL::to('contact')}}/{{$user->id}}" class="color">Contact</a>
                                         </li>
-                                        <li>
+                                        <li class="active">
                                             <a href="{{URL::to('member')}}/{{$user->id}}" class="color">Member
                                                 Status</a>
                                         </li>
