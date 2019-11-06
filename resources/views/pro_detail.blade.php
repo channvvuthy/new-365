@@ -27,7 +27,7 @@
                                 <div class="col-md-9">
                                     <div class="pro-spec">
                                         <?php
-                                        $images = json_decode($products->images,true);
+                                        $images = json_decode($products->images, true);
                                         ?>
                                         <div class="img-spec">
                                             <img src="{{$images[0]}}" alt="main-image" class="bigImg">
@@ -95,7 +95,8 @@
                                     </div>
                                     <div class="iframe">
                                         </iframe>
-                                        <iframe width="100%" height="258" frameborder="0" scrolling="no" marginheight="0"
+                                        <iframe width="100%" height="258" frameborder="0" scrolling="no"
+                                                marginheight="0"
                                                 marginwidth="0"
                                                 src="https://maps.google.com/maps?q=11.585230,104.86620&hl=es;z=17.5&amp;output=embed"></iframe>
                                     </div>
@@ -130,5 +131,14 @@
             </div>
         </div>
     </div>
+@stop
+@section('meta')
+    <meta property="og:url" content="{{URL::to('/')}}/detail/{{$products->id}}"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:title" content="{{$products->name}}"/>
+    <meta property="og:description" content="{{$products->description}}"/>
+    <meta property="og:image"
+          content="{{$images[0]}}"/>
+
 @stop
 @include('layouts.foot')

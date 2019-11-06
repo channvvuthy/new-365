@@ -52,7 +52,8 @@
                                             <a href="{{URL::to('contact')}}/{{$user->id}}" class="color">Contact</a>
                                         </li>
                                         <li>
-                                            <a href="{{URL::to('member')}}/{{$user->id}}" class="color">Member Status</a>
+                                            <a href="{{URL::to('member')}}/{{$user->id}}" class="color">Member
+                                                Status</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -139,5 +140,14 @@
             </div>
         </div>
     </div>
+@stop
+@section('meta')
+    <meta property="og:url" content="{{URL::to('store')}}/{{$user->id}}"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:title" content="{{$user->name}}"/>
+    <meta property="og:description" content="Member Since {{date("d F Y", strtotime($user->created_at))}}"/>
+    <meta property="og:image"
+          content="{{asset('images')}}/{{$user->image}}"/>
+
 @stop
 @include('layouts.foot')
