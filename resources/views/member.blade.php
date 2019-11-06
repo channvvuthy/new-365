@@ -89,12 +89,6 @@
                                                     <li>: City/Province {{$user->location}}</li>
                                                 </ul>
                                             </li>
-                                            <li>
-                                                <ul class="list-inline">
-                                                    <li class="first_con">Address</li>
-                                                    <li>: {{$user->address}}</li>
-                                                </ul>
-                                            </li>
                                         </ul>
 
                                         <br><br><br><br><br><br><br><br><br><br><br>
