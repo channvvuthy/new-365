@@ -48,7 +48,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-12">
-                                        <a href="https://www.facebook.com/sharer/sharer.php?u={{URL::to('/')}}/detail/{{$prducts->id}}"
+                                        <a href="https://www.facebook.com/sharer/sharer.php?u={{URL::to('/')}}/detail/{{$products->id}}"
                                            class="btn btn-default btn-xs pull-right"><i class="fa fa-share"></i> Share
                                             to Facebook</a>
                                         <h3 class="pro-name color">{{$products->name}}</h3>

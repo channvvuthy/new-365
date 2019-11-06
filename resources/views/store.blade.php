@@ -27,7 +27,7 @@
                                         </div>
                                         <div class="social pull-right">
                                             <ul class="list-inline" style="position: relative;bottom: -40px;">
-                                                <li><a href="" class="btn btn-default btn-md"><i
+                                                <li><a href="https://www.facebook.com/sharer/sharer.php?u={{URL::to('/')}}/store/{{$user->id}}" class="btn btn-default btn-md"><i
                                                                 class="fa fa-share"></i>
                                                         Share</a></li>
                                                 <li><a href="" class="btn btn-primary btn-md"><i
