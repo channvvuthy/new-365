@@ -26,8 +26,8 @@ $(document).on('click', '.first a', function (e) {
     $(".toggle").toggleClass('hidden');
 });
 
-$('#list').click(function (e) {
-    e.preventDefault();
+$('#list').click(function (event) {
+    event.preventDefault();
     $('#products .item').addClass('list-group-item');
     $(".item.col-lg-4").css({"height": "auto"});
     $("#grid").removeClass('active');
@@ -35,8 +35,8 @@ $('#list').click(function (e) {
     $(".grid").addClass('marginRight');
 });
 
-$('#grid').click(function (e) {
-    e.preventDefault();
+$('#grid').click(function (event) {
+    event.preventDefault();
     $('#products .item').removeClass('list-group-item');
     $(".item.col-lg-4").css({"height": "300px"})
     $("#list").removeClass('active');
