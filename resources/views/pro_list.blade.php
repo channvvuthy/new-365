@@ -7,10 +7,10 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="btn-group">
-                        <a href="#" id="list" class="btn btn-default btn-sm"><span
-                                    class="glyphicon glyphicon-th-list"></span></a>
-                        <a href="#" id="grid" class="btn btn-default btn-sm active"><span
-                                    class="glyphicon glyphicon-th"></span></a>
+                        <div id="list" class="btn btn-default btn-sm"><span
+                                    class="glyphicon glyphicon-th-list"></span></div>
+                        <div id="grid" class="btn btn-default btn-sm active"><span
+                                    class="glyphicon glyphicon-th"></span></div>
                     </div>
                 </div>
                 <div class="col-md-6 text-right">
@@ -26,8 +26,11 @@
                                 @endif
                                 <label class="" for="pwd">&nbsp; Sort:</label>
                                 <select name="sort" class="form-control" id="sort">
-                                    <option value="new_ads" @if(@$_GET['sort']=="new_ads") selected @endif>New ads</option>
-                                    <option value="most_view" @if(@$_GET['sort']=="most_view") selected @endif>Most View</option>
+                                    <option value="new_ads" @if(@$_GET['sort']=="new_ads") selected @endif>New ads
+                                    </option>
+                                    <option value="most_view" @if(@$_GET['sort']=="most_view") selected @endif>Most
+                                        View
+                                    </option>
                                 </select>
                             </div>
                         </form>
