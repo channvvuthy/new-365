@@ -27,7 +27,7 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
     public function hasPosts(){
-        return $this->hasMany('App\Post','user_id','id')->orderby('updated_at','desc');
+        return $this->hasMany('App\Post','user_id','id')->orderby('id','desc');
     }
     public function hasStore(){
         return $this->hasOne('App\Store','user_id','id');
