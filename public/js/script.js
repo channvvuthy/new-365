@@ -25,23 +25,24 @@ $(document).on('click', '.first a', function (e) {
     e.preventDefault();
     $(".toggle").toggleClass('hidden');
 });
-
-$('#list').click(function (event) {
+$(document).on('click', "#list", function (event) {
     event.preventDefault();
     $('#products .item').addClass('list-group-item');
     $(".item.col-lg-4").css({"height": "auto"});
     $("#grid").removeClass('active');
     $(".list-thum").removeClass('hidden');
     $(".grid").addClass('marginRight');
+    $(this).addClass('active');
 });
 
-$('#grid').click(function (event) {
+$(document).on('click', "#grid", function (event) {
     event.preventDefault();
     $('#products .item').removeClass('list-group-item');
     $(".item.col-lg-4").css({"height": "300px"})
     $("#list").removeClass('active');
     $(".list-thum").addClass('hidden');
     $(".grid").removeClass('marginRight');
+    $(this).addClass('active');
 });
 
 $(document).on('click', '.pro-thumbnail', function () {
