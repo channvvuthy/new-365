@@ -166,3 +166,10 @@ span.error {
     margin-bottom: 15px;
     border-radius:4px;
 }
+.contact li{
+    overflow: hidden;
+    padding:3px;
+}
+.contact li.first_con{
+    width:100px;
+}

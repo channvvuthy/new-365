@@ -57,6 +57,7 @@ class UserController extends Controller
 
     public function getStore(Request $request, $id)
     {
+
         $user = DB::table('users')->where('id', $id)->first();
         if (!empty($request->sort)) {
             if ($request->sort == 'new_ads') {
@@ -202,5 +203,15 @@ class UserController extends Controller
         $user->password = bcrypt($request->password);
         $user->save();
         return redirect('/')->withErrors(['login' => "Verification code doesn't exist in the database"]);
+    }
+
+    public function getContact($id){
+        $user=User::find($id);
+        return view('contact')->with('user',$user);
+    }
+
+    public function getMember($id){
+        $user=User::find($id);
+        return view('member')->with('user',$user);
     }
 }

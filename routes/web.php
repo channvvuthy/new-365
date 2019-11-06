@@ -46,3 +46,7 @@ Route::post('reset', 'Update\UserController@postReset');
 Route::get('about', 'Update\AboutControllerr@getAbout');
 
 Route::post('about', 'Update\AboutControllerr@postAbout');
+
+Route::get('contact/{id}', 'Update\UserController@getContact');
+
+Route::get('member/{id}', 'Update\UserController@getMember');

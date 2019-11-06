@@ -27,7 +27,9 @@
                                         </div>
                                         <div class="social pull-right">
                                             <ul class="list-inline" style="position: relative;bottom: -40px;z-index:2;">
-                                                <li><a href="https://www.facebook.com/sharer/sharer.php?u={{URL::to('/')}}/store/{{$user->id}}" class="btn btn-default btn-md"><i
+                                                <li>
+                                                    <a href="https://www.facebook.com/sharer/sharer.php?u={{URL::to('/')}}/store/{{$user->id}}"
+                                                       class="btn btn-default btn-md"><i
                                                                 class="fa fa-share"></i>
                                                         Share</a></li>
                                                 <li><a href="tel:010545450" class="btn btn-primary btn-md"><i
@@ -47,10 +49,10 @@
                                                 &nbsp;All Posts</a>
                                         </li>
                                         <li>
-                                            <a href="#" class="color">Contact</a>
+                                            <a href="{{URL::to('contact')}}/{{$user->id}}" class="color">Contact</a>
                                         </li>
                                         <li>
-                                            <a href="#" class="color">Member Status</a>
+                                            <a href="{{URL::to('member')}}/{{$user->id}}" class="color">Member Status</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -78,8 +80,14 @@
                                                         <label class="" for="pwd">&nbsp; Sort:</label>
 
                                                         <select name="sort" class="form-control" id="sort">
-                                                            <option value="new_ads" @if(@$_GET['sort']=='new_ads') selected @endif>New ads</option>
-                                                            <option value="most_view" @if(@$_GET['sort']=='most_view') selected @endif>Most View</option>
+                                                            <option value="new_ads"
+                                                                    @if(@$_GET['sort']=='new_ads') selected @endif>New
+                                                                ads
+                                                            </option>
+                                                            <option value="most_view"
+                                                                    @if(@$_GET['sort']=='most_view') selected @endif>
+                                                                Most View
+                                                            </option>
                                                         </select>
                                                     </div>
                                                 </form>
