@@ -83,12 +83,6 @@
                                                     <li>: Normal Account</li>
                                                 </ul>
                                             </li>
-                                            <li>
-                                                <ul class="list-inline">
-                                                    <li class="first_con">Last Online</li>
-                                                    <li>: City/Province {{$user->location}}</li>
-                                                </ul>
-                                            </li>
                                         </ul>
 
                                         <br><br><br><br><br><br><br><br><br><br><br>
