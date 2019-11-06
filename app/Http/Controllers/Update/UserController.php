@@ -66,7 +66,7 @@ class UserController extends Controller
                 $products = Post::orderBy('views','desc')->where('user_id', $id)->simplePaginate(15);
             }
         }else{
-            $products = Post::where('user_id', $id)->simplePaginate(15);
+            $products = Post::where('user_id', $id)->orderBy('id','desc')->simplePaginate(15);
         }
 
         return view('store')->with('user', $user)->with('products', $products);
