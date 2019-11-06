@@ -17,7 +17,7 @@
             <div class="bg-white">
                 <div class="sub" v-if="firstSubCat">
                     <div class="col-md-3 text-center pd" v-for="(subCat,index) in firstSubCat.sub_category">
-                        <a :href="homeUrl+'/category/'+subCat.name"><i :class="subCat.icon"></i> {{subCat.name}}</a>
+                        <a :href="homeUrl+'category/'+subCat.name"><i :class="subCat.icon"></i> {{subCat.name}}</a>
                     </div>
                 </div>
             </div>
