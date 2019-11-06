@@ -380,7 +380,7 @@ class PostController extends Controller
             $offset = $request->offset;
             $limit = $request->limit;
         }
-        $products = DB::table('posts')->where('user_id', $id)->skip($offset)->take($limit)->get();
+        $products = DB::table('posts')->where('user_id', $id)->orderBy('id','desc')->skip($offset)->take($limit)->get();
         return Response::json(array(
             'products' => $products),
             200
