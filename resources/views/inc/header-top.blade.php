@@ -1,7 +1,7 @@
 <nav class="navbar navbar-inverse">
     <div class="container">
         <div class="navbar-header">
-            <a class="navbar-brand" href="{{URL::to('/')}}">365daymarket <p class="line"></p> </a>
+            <a class="navbar-brand" href="{{URL::to('/')}}"><img src="{{asset('images')}}/logo.PNG" height="55px"/><p class="line"></p> </a>
         </div>
         <ul class="nav navbar-nav">
         </ul>
@@ -12,7 +12,7 @@
                 <li><a href="{{URL::to('post')}}"><span class="glyphicon glyphicon-send"></span> Post Product</a></li>
             </ul>
         @else
-            <ul class="nav navbar-nav navbar-right">
+            <ul class="nav navbar-nav navbar-right" style="position: relative;top:20px;">
                 <li><a href="#" class="myModalRegister"><span class="glyphicon glyphicon-user"></span> Register</a></li>
                 <li><a href="#" class="myModalLogin"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
                 <li><a href="#" class="myModalLogin"><span class="glyphicon glyphicon-send"></span> Post Product</a></li>
