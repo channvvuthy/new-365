@@ -1,7 +1,7 @@
 <nav class="navbar navbar-inverse">
     <div class="container">
         <div class="navbar-header">
-            <a class="navbar-brand" href="{{URL::to('/')}}"><img src="{{asset('images')}}/logo.PNG" height="55px"/><p class="line"></p> </a>
+            <a class="navbar-brand" href="{{URL::to('/')}}"><img src="{{asset('images')}}/logo.png" height="55px"/><p class="line"></p> </a>
         </div>
         <ul class="nav navbar-nav">
         </ul>
